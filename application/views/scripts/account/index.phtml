@@ -1,0 +1,1297 @@
+<div id="app">
+	<!-- sidebar -->
+	<div class="sidebar app-aside" id="sidebar">
+		<div class="sidebar-container perfect-scrollbar">
+			<div>
+				<!-- start: SEARCH FORM -->
+				<div class="search-form hidden-md hidden-lg">
+					<a class="s-open" href="#"> <i class="ti-search"></i> </a>
+					<form class="navbar-form" role="search">
+						<a class="s-remove" href="#" target=".navbar-form"> <i class="ti-close"></i> </a>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<button class="btn search-button" type="submit">
+								<i class="ti-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<!-- end: SEARCH FORM -->
+				<!-- start: USER OPTIONS -->
+				<div class="nav-user-wrapper">
+					<div class="media">
+						<div class="media-body">
+							<span class="media-heading text-white"> ID: <?=$_SESSION['zh_user_id']; ?> </span>
+							<div class="text-small text-white-transparent">
+								<?php 
+									if ( $this->account_type == 0 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Standart</span>';
+									}
+									else if ( $this->account_type == 1 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Premium</span>';
+									}
+									else if ( $this->account_type == 2 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Business</span>';
+									}
+									else if ( $this->account_type == 3 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">VIP</span>';
+									}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: USER OPTIONS -->
+				<nav>
+					<!-- start: MAIN NAVIGATION MENU -->
+					<div class="navbar-title">
+						<span>Главное меню</span>
+					</div>
+					<ul class="main-navigation-menu">
+						<li>
+							<a href="/cp/account" class="profile-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="item-inner">
+										<span class="title"> Профиль </span>
+									</div>
+								</div> 
+							</a>
+						</li>
+						<?php echo $this->navigation()->menu()->setPartial("topMenu.phtml")->renderPartial(); ?>
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- / sidebar -->
+	<div class="app-content">
+		<!-- start: TOP NAVBAR -->
+		<header class="navbar navbar-default navbar-static-top">
+			<!-- start: NAVBAR HEADER -->
+			<div class="navbar-header">
+				<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/cp/account"> <img src="/cp/public/assets/images/logo.png" alt="Packet"/> </a>
+				<a class="navbar-brand navbar-brand-collapsed" href="/cp/account"> <img src="/cp/public/assets/images/logo-collapsed.png" alt="" /> </a>
+
+				<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+					<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i><small><i class="fa fa-caret-down margin-left-5"></i></small>
+				</button>
+			</div>
+			<!-- end: NAVBAR HEADER -->
+			<!-- start: NAVBAR COLLAPSE -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-left hidden-sm hidden-xs">
+					<li class="sidebar-toggler-wrapper">
+						<div>
+							<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
+					</li>		
+				</ul>
+				<ul class="nav navbar-right">
+					<!-- start: LANGUAGE SWITCHER -->
+					<li class="dropdown">
+						<a href class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-flag-o" style="vertical-align: middle; padding: 0px 5px;" aria-hidden="true"></i> </a>
+						<ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+							<li>
+								<a href="<?= $this->url( array('lang'=>'en') ) ?>" class="menu-toggler"> English </a>
+							</li>
+							<li>
+								<a href="<?= $this->url( array('lang'=>'ru') ) ?>" class="menu-toggler"> Русский </a>
+							</li>
+						</ul>
+					</li>
+					<!-- end: LANGUAGE SWITCHER -->
+							
+					<li><a href="/cp/account/logout"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;</a></li>
+							
+				</ul>
+				<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+				<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+			</div>
+					
+			<!-- end: NAVBAR COLLAPSE -->
+		</header>
+		<!-- end: TOP NAVBAR -->
+		
+		<div class="main-content" >
+			<div class="wrap-content container" id="container">
+				<!-- start: BREADCRUMB -->
+				<div class="breadcrumb-wrapper">
+					<h4 class="mainTitle no-margin"><?= $this->Translate("User profile") ?></h4>
+				</div>
+				<!-- end: BREADCRUMB -->
+				<!-- start: USER PROFILE -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="tabbable">
+								<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+									<li class="active">
+										<a data-toggle="tab" href="#panel_overview"> Информация </a>
+									</li>
+									<?php if ( $this->verificated == 0 ) { ?>
+									<li>
+										<a data-toggle="tab" href="#panel_verification"> Верификация </a>
+									</li>
+									<?php } ?>
+									<li>
+										<a data-toggle="tab" href="#panel_edit_account"> Настройки </a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="panel_overview" class="tab-pane fade in active">
+										<div class="row">
+											<div class="col-sm-6 col-md-5">
+												<div class="user-left">
+													<div class="center">
+														<h4>ID: <?php echo $_SESSION['zh_user_id']; ?></h4>
+														<hr>
+													</div>
+													<table class="table table-condensed">
+														<thead>
+															<tr>
+																<th colspan="3">Аккаунт</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>Тип аккаунта</td>
+																<td>
+																	<?php 
+																		if ( $this->account_type == 0 ) {
+																			echo '<span> Standart </span>';
+																		}
+																		else if ( $this->account_type == 1 ) {
+																			echo '<span> Premium </span>';
+																		}
+																		else if ( $this->account_type == 2 ) {
+																			echo '<span> Business </span>';
+																		}
+																		else if ( $this->account_type == 3 ) {
+																			echo '<span> VIP </span>';
+																		}
+																	?>
+																</td>
+															</tr>
+															<tr>
+																<td>Статус</td>
+																<?php
+																	if ( $this->verificated == 1 ) {
+																		echo '<td><span class="label label-sm label-success">верефицирован</span></td>';
+																	}
+																	else if ( $this->verificated == 0 ) {
+																		echo '<td><span class="label label-sm label-danger">неверефицирован</span></td>';
+																	}
+																?>
+															</tr>
+															<tr>
+																<td>E-mail адрес:</td>
+																<td><span> <?= $this->e_mail ?> </span></td>
+															</tr>
+															<tr>
+																<td>Мобильный номер:</td>
+																<td><span> +<?= $this->phone ?> </span></td>
+															</tr>
+															<tr>
+																<td>Статус телефона:</td>
+																<?php
+																	if ( $this->activated == 1 ) {
+																		echo '<td><span class="label label-sm label-success">подтвержден</span></td>';
+																	}
+																	else if ( $this->activated == 0 ) {
+																		echo '<td><span class="label label-sm label-danger">неподтвержден</span></td>';
+																	}
+																?>
+															</tr>
+														</tbody>
+													</table>
+													<?php if ( $this->verificated == 1 ) { ?>
+													<table class="table">
+														<thead>
+															<tr>
+																<th colspan="3">Личные данные</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>Фамилия</td>
+																<td><?= $this->lastname ?></td>
+															</tr>
+															<tr>
+																<td>Имя</td>
+																<td><?= $this->firstname ?></td>
+															</tr>
+															<tr>
+																<td>Отчество</td>
+																<td><?= $this->middlename ?></td>
+															</tr>
+															<tr>
+																<td>Дата рождения</td>
+																<td><?= $this->birthdate ?></td>
+															</tr>
+														</tbody>
+													</table>
+													<?php } ?>
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-7">
+												<div class="panel panel-white" id="activities">
+													<div class="panel-heading border-light">
+														<h4 class="panel-title text-primary">Ваши кошельки</h4>
+														<paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+													</div>
+													<div collapse="activities" ng-init="activities=false" class="panel-wrapper">
+														<div class="panel-body">
+															<?= $this->partial("profileBalance.phtml", array( 'balance' => $this->balance ) ) ?>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<?php if ( $this->verificated == 0 ) { ?>
+									<div id="panel_verification" class="tab-pane fade">
+										<div class="tabbable">
+											<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab5">
+												<li class="active">
+													<a data-toggle="tab" href="#verification_personal"> Частное лицо </a>
+												</li>
+												<li>
+													<a data-toggle="tab" href="#verification_business"> Компания </a>
+												</li>
+											</ul>
+											<div class="tab-content">
+												<div id="verification_personal" class="tab-pane fade in active">
+													<fieldset>
+											<form id="form-verification" action="" method="post" enctype="multipart/form-data">
+												<a href="#mytop" id="zh_top"></a>
+												<legend>
+													Персональные данные
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label"> Имя<span id="err_firstname" class="req">*</span> </label>
+															<input type="text" placeholder="Введите Ваше имя" class="form-control" id="firstname" name="firstname">
+															<span id="infoFirstname"></span>
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Фамилия<span id="err_lastname" class="req">*</span> </label>
+															<input type="text" placeholder="Введите Вашу фамилию" class="form-control" id="lastname" name="lastname">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Отчество </label>
+															<input type="text" placeholder="Введите Ваше отчество" class="form-control" id="middlename" name="middlename">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Серия и номер документа<span id="err_docnum" class="req">*</span> </label>
+															<input type="text" placeholder="Введите серию и номер Вашего документа" class="form-control" id="docnum" name="docnum">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Кем выдан документ<span id="err_docwho" class="req">*</span> </label>
+															<input type="text" placeholder="Введите информацию о том, кем выдан Ваш документ" class="form-control" id="docwho" name="docwho">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Когда выдан документ<span id="err_docwhen" class="req">*</span> </label>
+															<input type="date" placeholder="21.05.2016" class="form-control" id="docwhen" name="docwhen">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label"> Страна<span class="req">*</span> </label>
+															<select id="country" name="country" class="form-control">
+																<?php
+																	$countryList = array (
+																	  'AU' => 'Австралия',
+																	  'AT' => 'Австрия',
+																	  'AZ' => 'Азербайджан',
+																	  'AX' => 'Аландские о-ва',
+																	  'AL' => 'Албания',
+																	  'DZ' => 'Алжир',
+																	  'AS' => 'Американское Самоа',
+																	  'AI' => 'Ангилья',
+																	  'AO' => 'Ангола',
+																	  'AD' => 'Андорра',
+																	  'AQ' => 'Антарктида',
+																	  'AG' => 'Антигуа и Барбуда',
+																	  'AR' => 'Аргентина',
+																	  'AM' => 'Армения',
+																	  'AW' => 'Аруба',
+																	  'AF' => 'Афганистан',
+																	  'BS' => 'Багамские о-ва',
+																	  'BD' => 'Бангладеш',
+																	  'BB' => 'Барбадос',
+																	  'BH' => 'Бахрейн',
+																	  'BY' => 'Беларусь',
+																	  'BZ' => 'Белиз',
+																	  'BE' => 'Бельгия',
+																	  'BJ' => 'Бенин',
+																	  'BM' => 'Бермудские о-ва',
+																	  'BG' => 'Болгария',
+																	  'BO' => 'Боливия',
+																	  'BQ' => 'Бонэйр, Синт-Эстатиус и Саба',
+																	  'BA' => 'Босния и Герцеговина',
+																	  'BW' => 'Ботсвана',
+																	  'BR' => 'Бразилия',
+																	  'IO' => 'Британская территория в Индийском океане',
+																	  'BN' => 'Бруней-Даруссалам',
+																	  'BF' => 'Буркина-Фасо',
+																	  'BI' => 'Бурунди',
+																	  'BT' => 'Бутан',
+																	  'VU' => 'Вануату',
+																	  'VA' => 'Ватикан',
+																	  'GB' => 'Великобритания',
+																	  'HU' => 'Венгрия',
+																	  'VE' => 'Венесуэла',
+																	  'VG' => 'Виргинские о-ва (Британские)',
+																	  'VI' => 'Виргинские о-ва (США)',
+																	  'UM' => 'Внешние малые о-ва (США)',
+																	  'TL' => 'Восточный Тимор',
+																	  'VN' => 'Вьетнам',
+																	  'GA' => 'Габон',
+																	  'HT' => 'Гаити',
+																	  'GY' => 'Гайана',
+																	  'GM' => 'Гамбия',
+																	  'GH' => 'Гана',
+																	  'GP' => 'Гваделупа',
+																	  'GT' => 'Гватемала',
+																	  'GN' => 'Гвинея',
+																	  'GW' => 'Гвинея-Бисау',
+																	  'DE' => 'Германия',
+																	  'GG' => 'Гернси',
+																	  'GI' => 'Гибралтар',
+																	  'HN' => 'Гондурас',
+																	  'HK' => 'Гонконг (особый район)',
+																	  'GD' => 'Гренада',
+																	  'GL' => 'Гренландия',
+																	  'GR' => 'Греция',
+																	  'GE' => 'Грузия',
+																	  'GU' => 'Гуам',
+																	  'DK' => 'Дания',
+																	  'JE' => 'Джерси',
+																	  'DJ' => 'Джибути',
+																	  'DG' => 'Диего-Гарсия',
+																	  'DM' => 'Доминика',
+																	  'DO' => 'Доминиканская Республика',
+																	  'EG' => 'Египет',
+																	  'ZM' => 'Замбия',
+																	  'EH' => 'Западная Сахара',
+																	  'ZW' => 'Зимбабве',
+																	  'IL' => 'Израиль',
+																	  'IN' => 'Индия',
+																	  'ID' => 'Индонезия',
+																	  'JO' => 'Иордания',
+																	  'IQ' => 'Ирак',
+																	  'IR' => 'Иран',
+																	  'IE' => 'Ирландия',
+																	  'IS' => 'Исландия',
+																	  'ES' => 'Испания',
+																	  'IT' => 'Италия',
+																	  'YE' => 'Йемен',
+																	  'CV' => 'Кабо-Верде',
+																	  'KZ' => 'Казахстан',
+																	  'KY' => 'Каймановы о-ва',
+																	  'KH' => 'Камбоджа',
+																	  'CM' => 'Камерун',
+																	  'CA' => 'Канада',
+																	  'IC' => 'Канарские о-ва',
+																	  'QA' => 'Катар',
+																	  'KE' => 'Кения',
+																	  'CY' => 'Кипр',
+																	  'KG' => 'Киргизия',
+																	  'KI' => 'Кирибати',
+																	  'CN' => 'Китай',
+																	  'KP' => 'КНДР',
+																	  'CC' => 'Кокосовые о-ва',
+																	  'CO' => 'Колумбия',
+																	  'KM' => 'Коморские о-ва',
+																	  'CG' => 'Конго - Браззавиль',
+																	  'CD' => 'Конго - Киншаса',
+																	  'XK' => 'Косово',
+																	  'CR' => 'Коста-Рика',
+																	  'CI' => 'Кот-д’Ивуар',
+																	  'CU' => 'Куба',
+																	  'KW' => 'Кувейт',
+																	  'CW' => 'Кюрасао',
+																	  'LA' => 'Лаос',
+																	  'LV' => 'Латвия',
+																	  'LS' => 'Лесото',
+																	  'LR' => 'Либерия',
+																	  'LB' => 'Ливан',
+																	  'LY' => 'Ливия',
+																	  'LT' => 'Литва',
+																	  'LI' => 'Лихтенштейн',
+																	  'LU' => 'Люксембург',
+																	  'MU' => 'Маврикий',
+																	  'MR' => 'Мавритания',
+																	  'MG' => 'Мадагаскар',
+																	  'YT' => 'Майотта',
+																	  'MO' => 'Макао (особый район)',
+																	  'MK' => 'Македония',
+																	  'MW' => 'Малави',
+																	  'MY' => 'Малайзия',
+																	  'ML' => 'Мали',
+																	  'MV' => 'Мальдивские о-ва',
+																	  'MT' => 'Мальта',
+																	  'MA' => 'Марокко',
+																	  'MQ' => 'Мартиника',
+																	  'MH' => 'Маршалловы о-ва',
+																	  'MX' => 'Мексика',
+																	  'MZ' => 'Мозамбик',
+																	  'MD' => 'Молдова',
+																	  'MC' => 'Монако',
+																	  'MN' => 'Монголия',
+																	  'MS' => 'Монтсеррат',
+																	  'MM' => 'Мьянма (Бирма)',
+																	  'NA' => 'Намибия',
+																	  'NR' => 'Науру',
+																	  'NP' => 'Непал',
+																	  'NE' => 'Нигер',
+																	  'NG' => 'Нигерия',
+																	  'NL' => 'Нидерланды',
+																	  'NI' => 'Никарагуа',
+																	  'NU' => 'Ниуэ',
+																	  'NZ' => 'Новая Зеландия',
+																	  'NC' => 'Новая Каледония',
+																	  'NO' => 'Норвегия',
+																	  'AC' => 'о-в Вознесения',
+																	  'IM' => 'О-в Мэн',
+																	  'NF' => 'о-в Норфолк',
+																	  'CX' => 'о-в Рождества',
+																	  'SH' => 'О-в Св. Елены',
+																	  'CK' => 'о-ва Кука',
+																	  'TC' => 'О-ва Тёркс и Кайкос',
+																	  'AE' => 'ОАЭ',
+																	  'OM' => 'Оман',
+																	  'PK' => 'Пакистан',
+																	  'PW' => 'Палау',
+																	  'PS' => 'Палестинские территории',
+																	  'PA' => 'Панама',
+																	  'PG' => 'Папуа – Новая Гвинея',
+																	  'PY' => 'Парагвай',
+																	  'PE' => 'Перу',
+																	  'PN' => 'Питкэрн',
+																	  'PL' => 'Польша',
+																	  'PT' => 'Португалия',
+																	  'PR' => 'Пуэрто-Рико',
+																	  'KR' => 'Республика Корея',
+																	  'RE' => 'Реюньон',
+																	  'RU' => 'Россия',
+																	  'RW' => 'Руанда',
+																	  'RO' => 'Румыния',
+																	  'SV' => 'Сальвадор',
+																	  'WS' => 'Самоа',
+																	  'SM' => 'Сан-Марино',
+																	  'ST' => 'Сан-Томе и Принсипи',
+																	  'SA' => 'Саудовская Аравия',
+																	  'SZ' => 'Свазиленд',
+																	  'MP' => 'Северные Марианские о-ва',
+																	  'SC' => 'Сейшельские о-ва',
+																	  'BL' => 'Сен-Бартельми',
+																	  'MF' => 'Сен-Мартен',
+																	  'PM' => 'Сен-Пьер и Микелон',
+																	  'SN' => 'Сенегал',
+																	  'VC' => 'Сент-Винсент и Гренадины',
+																	  'KN' => 'Сент-Китс и Невис',
+																	  'LC' => 'Сент-Люсия',
+																	  'RS' => 'Сербия',
+																	  'EA' => 'Сеута и Мелилья',
+																	  'SG' => 'Сингапур',
+																	  'SX' => 'Синт-Мартен',
+																	  'SY' => 'Сирия',
+																	  'SK' => 'Словакия',
+																	  'SI' => 'Словения',
+																	  'US' => 'Соединенные Штаты',
+																	  'SB' => 'Соломоновы о-ва',
+																	  'SO' => 'Сомали',
+																	  'SD' => 'Судан',
+																	  'SR' => 'Суринам',
+																	  'SL' => 'Сьерра-Леоне',
+																	  'TJ' => 'Таджикистан',
+																	  'TH' => 'Таиланд',
+																	  'TW' => 'Тайвань',
+																	  'TZ' => 'Танзания',
+																	  'TG' => 'Того',
+																	  'TK' => 'Токелау',
+																	  'TO' => 'Тонга',
+																	  'TT' => 'Тринидад и Тобаго',
+																	  'TA' => 'Тристан-да-Кунья',
+																	  'TV' => 'Тувалу',
+																	  'TN' => 'Тунис',
+																	  'TM' => 'Туркменистан',
+																	  'TR' => 'Турция',
+																	  'UG' => 'Уганда',
+																	  'UZ' => 'Узбекистан',
+																	  'UA' => 'Украина',
+																	  'WF' => 'Уоллис и Футуна',
+																	  'UY' => 'Уругвай',
+																	  'FO' => 'Фарерские о-ва',
+																	  'FM' => 'Федеративные Штаты Микронезии',
+																	  'FJ' => 'Фиджи',
+																	  'PH' => 'Филиппины',
+																	  'FI' => 'Финляндия',
+																	  'FK' => 'Фолклендские о-ва',
+																	  'FR' => 'Франция',
+																	  'GF' => 'Французская Гвиана',
+																	  'PF' => 'Французская Полинезия',
+																	  'TF' => 'Французские Южные Территории',
+																	  'HR' => 'Хорватия',
+																	  'CF' => 'ЦАР',
+																	  'TD' => 'Чад',
+																	  'ME' => 'Черногория',
+																	  'CZ' => 'Чехия',
+																	  'CL' => 'Чили',
+																	  'CH' => 'Швейцария',
+																	  'SE' => 'Швеция',
+																	  'SJ' => 'Шпицберген и Ян-Майен',
+																	  'LK' => 'Шри-Ланка',
+																	  'EC' => 'Эквадор',
+																	  'GQ' => 'Экваториальная Гвинея',
+																	  'ER' => 'Эритрея',
+																	  'EE' => 'Эстония',
+																	  'ET' => 'Эфиопия',
+																	  'ZA' => 'ЮАР',
+																	  'GS' => 'Южная Георгия и Южные Сандвичевы о-ва',
+																	  'SS' => 'Южный Судан',
+																	  'JM' => 'Ямайка',
+																	  'JP' => 'Япония'
+																	);
+																?>
+																<?php foreach ( $countryList as $key => $value ) { ?>
+																	<option value="<?= $value ?>"><?= $value ?></option>
+																<?php } ?>
+															</select>
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Город<span id="err_city" class="req">*</span> </label>
+															<input type="text" placeholder="Введите Ваш город" class="form-control" id="city" name="city">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Дата рождения<span id="err_birthdate" class="req">*</span> </label>
+															<input type="date" placeholder="01.01.1990" class="form-control" id="birthdate" name="birthdate">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Прикрепите документы<span class="req">*</span> </label><br>
+															<input type="hidden" name="MAX_FILE_SIZE" value="300000">
+															Изображение 1 <span id="err_userfile" class="req"></span><input id="zh_files" name="userfile1" type="file">
+														</div>
+														<div class="form-group">
+															Изображение 2 <input name="userfile2" type="file">
+														</div>
+													</div>
+												</div>
+											</fieldset>
+									
+											<div class="row">
+												<div class="col-md-12">
+													<div>
+														Все поля, обозначенные звездочкой (*) обязательны к заполнению!
+														<hr>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+													<p>
+														Нажимая кнопку ОТПРАВИТЬ, Вы соглашаетесь с политикой конфиденциальности и правилами сервиса.
+													</p>
+												</div>
+												<div class="col-md-4">
+													<input type="hidden" id="send" name="send" value="success">
+													<input class="btn btn-primary pull-right" type="submit" name="Verificate" id="Verificate" value="Отправить">
+												</div>
+											</div>
+										</form>
+												</div>
+												<div id="verification_business" class="tab-pane fade">
+													<fieldset>
+														<legend>
+															Данные компании
+														</legend>
+														<form action="" method="post">
+															<div class="row">
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label class="control-label"> Полное название компании<span id="err_companyname" class="req">*</span> </label>
+																		<input type="text" placeholder="Введите полное название компании" class="form-control" id="companyname" name="companyname">
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label"> Официальный сайт компании<span id="err_companysite" class="req">*</span> </label>
+																		<input type="text" placeholder="Введите сайт компании" class="form-control" id="companysite" name="companysite">
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label"> Email компании<span id="err_companyemail" class="req">*</span> </label>
+																		<input type="text" placeholder="Введите сайт компании" class="form-control" id="companyemail" name="companyemail">
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label"> Телефон компании<span id="err_companyphone" class="req">*</span> </label>
+																		<input type="text" placeholder="Введите сайт компании" class="form-control" id="companyphone" name="companyphone">
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label"> Страна, в которой зарегистрирована компания<span class="req">*</span> </label>
+																		<select id="companycountry" name="companycountry" class="form-control">
+																		<?php
+																			$countryLists = array (
+																			  'AU' => 'Австралия',
+																			  'AT' => 'Австрия',
+																			  'AZ' => 'Азербайджан',
+																			  'AX' => 'Аландские о-ва',
+																			  'AL' => 'Албания',
+																			  'DZ' => 'Алжир',
+																			  'AS' => 'Американское Самоа',
+																			  'AI' => 'Ангилья',
+																			  'AO' => 'Ангола',
+																			  'AD' => 'Андорра',
+																			  'AQ' => 'Антарктида',
+																			  'AG' => 'Антигуа и Барбуда',
+																			  'AR' => 'Аргентина',
+																			  'AM' => 'Армения',
+																			  'AW' => 'Аруба',
+																			  'AF' => 'Афганистан',
+																			  'BS' => 'Багамские о-ва',
+																			  'BD' => 'Бангладеш',
+																			  'BB' => 'Барбадос',
+																			  'BH' => 'Бахрейн',
+																			  'BY' => 'Беларусь',
+																			  'BZ' => 'Белиз',
+																			  'BE' => 'Бельгия',
+																			  'BJ' => 'Бенин',
+																			  'BM' => 'Бермудские о-ва',
+																			  'BG' => 'Болгария',
+																			  'BO' => 'Боливия',
+																			  'BQ' => 'Бонэйр, Синт-Эстатиус и Саба',
+																			  'BA' => 'Босния и Герцеговина',
+																			  'BW' => 'Ботсвана',
+																			  'BR' => 'Бразилия',
+																			  'IO' => 'Британская территория в Индийском океане',
+																			  'BN' => 'Бруней-Даруссалам',
+																			  'BF' => 'Буркина-Фасо',
+																			  'BI' => 'Бурунди',
+																			  'BT' => 'Бутан',
+																			  'VU' => 'Вануату',
+																			  'VA' => 'Ватикан',
+																			  'GB' => 'Великобритания',
+																			  'HU' => 'Венгрия',
+																			  'VE' => 'Венесуэла',
+																			  'VG' => 'Виргинские о-ва (Британские)',
+																			  'VI' => 'Виргинские о-ва (США)',
+																			  'UM' => 'Внешние малые о-ва (США)',
+																			  'TL' => 'Восточный Тимор',
+																			  'VN' => 'Вьетнам',
+																			  'GA' => 'Габон',
+																			  'HT' => 'Гаити',
+																			  'GY' => 'Гайана',
+																			  'GM' => 'Гамбия',
+																			  'GH' => 'Гана',
+																			  'GP' => 'Гваделупа',
+																			  'GT' => 'Гватемала',
+																			  'GN' => 'Гвинея',
+																			  'GW' => 'Гвинея-Бисау',
+																			  'DE' => 'Германия',
+																			  'GG' => 'Гернси',
+																			  'GI' => 'Гибралтар',
+																			  'HN' => 'Гондурас',
+																			  'HK' => 'Гонконг (особый район)',
+																			  'GD' => 'Гренада',
+																			  'GL' => 'Гренландия',
+																			  'GR' => 'Греция',
+																			  'GE' => 'Грузия',
+																			  'GU' => 'Гуам',
+																			  'DK' => 'Дания',
+																			  'JE' => 'Джерси',
+																			  'DJ' => 'Джибути',
+																			  'DG' => 'Диего-Гарсия',
+																			  'DM' => 'Доминика',
+																			  'DO' => 'Доминиканская Республика',
+																			  'EG' => 'Египет',
+																			  'ZM' => 'Замбия',
+																			  'EH' => 'Западная Сахара',
+																			  'ZW' => 'Зимбабве',
+																			  'IL' => 'Израиль',
+																			  'IN' => 'Индия',
+																			  'ID' => 'Индонезия',
+																			  'JO' => 'Иордания',
+																			  'IQ' => 'Ирак',
+																			  'IR' => 'Иран',
+																			  'IE' => 'Ирландия',
+																			  'IS' => 'Исландия',
+																			  'ES' => 'Испания',
+																			  'IT' => 'Италия',
+																			  'YE' => 'Йемен',
+																			  'CV' => 'Кабо-Верде',
+																			  'KZ' => 'Казахстан',
+																			  'KY' => 'Каймановы о-ва',
+																			  'KH' => 'Камбоджа',
+																			  'CM' => 'Камерун',
+																			  'CA' => 'Канада',
+																			  'IC' => 'Канарские о-ва',
+																			  'QA' => 'Катар',
+																			  'KE' => 'Кения',
+																			  'CY' => 'Кипр',
+																			  'KG' => 'Киргизия',
+																			  'KI' => 'Кирибати',
+																			  'CN' => 'Китай',
+																			  'KP' => 'КНДР',
+																			  'CC' => 'Кокосовые о-ва',
+																			  'CO' => 'Колумбия',
+																			  'KM' => 'Коморские о-ва',
+																			  'CG' => 'Конго - Браззавиль',
+																			  'CD' => 'Конго - Киншаса',
+																			  'XK' => 'Косово',
+																			  'CR' => 'Коста-Рика',
+																			  'CI' => 'Кот-д’Ивуар',
+																			  'CU' => 'Куба',
+																			  'KW' => 'Кувейт',
+																			  'CW' => 'Кюрасао',
+																			  'LA' => 'Лаос',
+																			  'LV' => 'Латвия',
+																			  'LS' => 'Лесото',
+																			  'LR' => 'Либерия',
+																			  'LB' => 'Ливан',
+																			  'LY' => 'Ливия',
+																			  'LT' => 'Литва',
+																			  'LI' => 'Лихтенштейн',
+																			  'LU' => 'Люксембург',
+																			  'MU' => 'Маврикий',
+																			  'MR' => 'Мавритания',
+																			  'MG' => 'Мадагаскар',
+																			  'YT' => 'Майотта',
+																			  'MO' => 'Макао (особый район)',
+																			  'MK' => 'Македония',
+																			  'MW' => 'Малави',
+																			  'MY' => 'Малайзия',
+																			  'ML' => 'Мали',
+																			  'MV' => 'Мальдивские о-ва',
+																			  'MT' => 'Мальта',
+																			  'MA' => 'Марокко',
+																			  'MQ' => 'Мартиника',
+																			  'MH' => 'Маршалловы о-ва',
+																			  'MX' => 'Мексика',
+																			  'MZ' => 'Мозамбик',
+																			  'MD' => 'Молдова',
+																			  'MC' => 'Монако',
+																			  'MN' => 'Монголия',
+																			  'MS' => 'Монтсеррат',
+																			  'MM' => 'Мьянма (Бирма)',
+																			  'NA' => 'Намибия',
+																			  'NR' => 'Науру',
+																			  'NP' => 'Непал',
+																			  'NE' => 'Нигер',
+																			  'NG' => 'Нигерия',
+																			  'NL' => 'Нидерланды',
+																			  'NI' => 'Никарагуа',
+																			  'NU' => 'Ниуэ',
+																			  'NZ' => 'Новая Зеландия',
+																			  'NC' => 'Новая Каледония',
+																			  'NO' => 'Норвегия',
+																			  'AC' => 'о-в Вознесения',
+																			  'IM' => 'О-в Мэн',
+																			  'NF' => 'о-в Норфолк',
+																			  'CX' => 'о-в Рождества',
+																			  'SH' => 'О-в Св. Елены',
+																			  'CK' => 'о-ва Кука',
+																			  'TC' => 'О-ва Тёркс и Кайкос',
+																			  'AE' => 'ОАЭ',
+																			  'OM' => 'Оман',
+																			  'PK' => 'Пакистан',
+																			  'PW' => 'Палау',
+																			  'PS' => 'Палестинские территории',
+																			  'PA' => 'Панама',
+																			  'PG' => 'Папуа – Новая Гвинея',
+																			  'PY' => 'Парагвай',
+																			  'PE' => 'Перу',
+																			  'PN' => 'Питкэрн',
+																			  'PL' => 'Польша',
+																			  'PT' => 'Португалия',
+																			  'PR' => 'Пуэрто-Рико',
+																			  'KR' => 'Республика Корея',
+																			  'RE' => 'Реюньон',
+																			  'RU' => 'Россия',
+																			  'RW' => 'Руанда',
+																			  'RO' => 'Румыния',
+																			  'SV' => 'Сальвадор',
+																			  'WS' => 'Самоа',
+																			  'SM' => 'Сан-Марино',
+																			  'ST' => 'Сан-Томе и Принсипи',
+																			  'SA' => 'Саудовская Аравия',
+																			  'SZ' => 'Свазиленд',
+																			  'MP' => 'Северные Марианские о-ва',
+																			  'SC' => 'Сейшельские о-ва',
+																			  'BL' => 'Сен-Бартельми',
+																			  'MF' => 'Сен-Мартен',
+																			  'PM' => 'Сен-Пьер и Микелон',
+																			  'SN' => 'Сенегал',
+																			  'VC' => 'Сент-Винсент и Гренадины',
+																			  'KN' => 'Сент-Китс и Невис',
+																			  'LC' => 'Сент-Люсия',
+																			  'RS' => 'Сербия',
+																			  'EA' => 'Сеута и Мелилья',
+																			  'SG' => 'Сингапур',
+																			  'SX' => 'Синт-Мартен',
+																			  'SY' => 'Сирия',
+																			  'SK' => 'Словакия',
+																			  'SI' => 'Словения',
+																			  'US' => 'Соединенные Штаты',
+																			  'SB' => 'Соломоновы о-ва',
+																			  'SO' => 'Сомали',
+																			  'SD' => 'Судан',
+																			  'SR' => 'Суринам',
+																			  'SL' => 'Сьерра-Леоне',
+																			  'TJ' => 'Таджикистан',
+																			  'TH' => 'Таиланд',
+																			  'TW' => 'Тайвань',
+																			  'TZ' => 'Танзания',
+																			  'TG' => 'Того',
+																			  'TK' => 'Токелау',
+																			  'TO' => 'Тонга',
+																			  'TT' => 'Тринидад и Тобаго',
+																			  'TA' => 'Тристан-да-Кунья',
+																			  'TV' => 'Тувалу',
+																			  'TN' => 'Тунис',
+																			  'TM' => 'Туркменистан',
+																			  'TR' => 'Турция',
+																			  'UG' => 'Уганда',
+																			  'UZ' => 'Узбекистан',
+																			  'UA' => 'Украина',
+																			  'WF' => 'Уоллис и Футуна',
+																			  'UY' => 'Уругвай',
+																			  'FO' => 'Фарерские о-ва',
+																			  'FM' => 'Федеративные Штаты Микронезии',
+																			  'FJ' => 'Фиджи',
+																			  'PH' => 'Филиппины',
+																			  'FI' => 'Финляндия',
+																			  'FK' => 'Фолклендские о-ва',
+																			  'FR' => 'Франция',
+																			  'GF' => 'Французская Гвиана',
+																			  'PF' => 'Французская Полинезия',
+																			  'TF' => 'Французские Южные Территории',
+																			  'HR' => 'Хорватия',
+																			  'CF' => 'ЦАР',
+																			  'TD' => 'Чад',
+																			  'ME' => 'Черногория',
+																			  'CZ' => 'Чехия',
+																			  'CL' => 'Чили',
+																			  'CH' => 'Швейцария',
+																			  'SE' => 'Швеция',
+																			  'SJ' => 'Шпицберген и Ян-Майен',
+																			  'LK' => 'Шри-Ланка',
+																			  'EC' => 'Эквадор',
+																			  'GQ' => 'Экваториальная Гвинея',
+																			  'ER' => 'Эритрея',
+																			  'EE' => 'Эстония',
+																			  'ET' => 'Эфиопия',
+																			  'ZA' => 'ЮАР',
+																			  'GS' => 'Южная Георгия и Южные Сандвичевы о-ва',
+																			  'SS' => 'Южный Судан',
+																			  'JM' => 'Ямайка',
+																			  'JP' => 'Япония'
+																			);
+																		?>
+																		<?php foreach ( $countryLists as $key => $value ) { ?>
+																			<option value="<?= $value ?>"><?= $value ?></option>
+																		<?php } ?>
+																		</select>
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label"> Город, в котором зарегистрирована компания<span id="err_companycity" class="req">*</span> </label>
+																		<input type="text" placeholder="Введите город, в котором зарегистрирована компания" class="form-control" id="companycity" name="companycity">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label class="control-label"> Дата регистрации компании<span id="err_companydate" class="req">*</span> </label>
+																		<input type="date" placeholder="01.01.1990" class="form-control" id="companydate" name="companydate">
+																	</div>
+																	<div class="form-group">
+																		<label class="control-label"> Подтверждающие документы<span class="req">*</span> </label><br>
+																		<input type="hidden" name="MAX_FILE_SIZE" value="300000">
+																		Изображение 1 <span id="err_companyfile" class="req"></span><input id="zh_files" name="companyfile1" type="file">
+																	</div>
+																	<div class="form-group">
+																		Изображение 2 <input name="companyfile2" type="file">
+																	</div>
+																	<div class="form-group">
+																		Изображение 3 <input name="companyfile3" type="file">
+																	</div>
+																	<div class="form-group">
+																		Изображение 4 <input name="companyfile4" type="file">
+																	</div>
+																	<div class="form-group">
+																		Изображение 5 <input name="companyfile5" type="file">
+																	</div>
+																</div>
+															</div>
+														</form>
+													</fieldset>
+												</div>
+											</div>
+										</div>
+										
+										
+<script>
+
+(function()
+{
+	var verification = document.getElementById("form-verification");
+
+	verification.onsubmit = function()
+	{
+		var err = false;
+
+		if ( this.firstname.value == '' ) {err = true;document.getElementById("err_firstname").innerHTML = ' *Укажите';}
+		else document.getElementById("err_firstname").innerHTML = '*';
+
+		if ( this.lastname.value == '' ) {err = true;document.getElementById("err_lastname").innerHTML = ' *Укажите';}
+		else document.getElementById("err_lastname").innerHTML = '*';
+
+		if ( this.city.value == '' ) {err = true;document.getElementById("err_city").innerHTML = ' *Укажите';}
+		else document.getElementById("err_city").innerHTML = '*';
+
+		if ( this.birthdate.value == '' ) {err = true;document.getElementById("err_birthdate").innerHTML = ' *Укажите';}
+		else document.getElementById("err_birthdate").innerHTML = '*';
+
+		if ( this.docnum.value == '' ) {err = true;document.getElementById("err_docnum").innerHTML = ' *Укажите';}
+		else document.getElementById("err_docnum").innerHTML = '*';
+
+		if ( this.docwho.value == '' ) {err = true;document.getElementById("err_docwho").innerHTML = ' *Укажите';}
+		else document.getElementById("err_docwho").innerHTML = '*';
+
+		if ( this.docwhen.value == '' ) {err = true;document.getElementById("err_docwhen").innerHTML = ' *Укажите';}
+		else document.getElementById("err_docwhen").innerHTML = '*';
+
+		if ( window.FileList && !document.getElementById("zh_files").files.length ) {err = true;document.getElementById("err_userfile").innerHTML = ' *Выберите';}
+		else document.getElementById("err_userfile").innerHTML = '';
+
+		if ( err ) {
+			top = $('#zh_top').offset().top;
+			$('body,html').animate({scrollTop: top}, 1500);
+
+			return false;
+		}
+
+		return true;
+	};
+})();
+
+</script>
+								</div>
+								<?php } ?>
+							
+								<div id="panel_edit_account" class="tab-pane fade">
+									<h5 class="over-title"><span class="text-bold">Настройки</span></h5>
+									<p class="margin-bottom-30">
+										Настройки профиля и безопасности Вашего аккаунта
+									</p>
+									<div class="row">
+										<div class="col-md-5">
+											<fieldset>
+												<legend>
+													Смс уведомления
+												</legend>
+												<div class="form-group">
+													<label class="checkbox-inline clip-check">
+														<input type="checkbox" name="newsletter">
+														<i></i> На Вашем SMS-балансе <?= $this->sms_balance ?>$ , хватит на <?php echo $this->sms_balance/0.05; ?> SMS. <br/> Вы можете <a href="#" data-toggle="modal" data-target="#sms-fill-modal">пополнить</a> свой SMS-баланс. 
+													</label>
+												</div>
+											</fieldset>
+												
+											<fieldset>
+												<legend>
+													Подтверждение мобильного номера
+												</legend>
+												<?php if ( $this->activated == 0 ) { ?>
+												<form action="" method="post">
+													<div class="form-group">
+														<label> Введите номер Вашего мобильного телефона в международном формате, без +, например - 38067123457: <span class="symbol required"></span> </label>
+														<input type="text" id="phone" name="phone" placeholder="9990000000" style="border: 0; outline: none; padding: 7px 6px !important;">
+														<input type="hidden" name="phonecode" id="phonecode" value="">
+														<br>
+														<input type="submit" id="PhoneSendCode" name="PhoneSendCode" class="btn btn-primary pull-left" value="Подтвердить номер">
+													</div>
+												</form>
+												<?php } ?>
+												<?php if ( $this->activated == 1 ) {
+													echo '<label> Ваш номер телефона - +' . $this->phone . ' подтвержден </label>';
+												}
+												?>
+											</fieldset>
+											
+											<fieldset>
+												<legend>
+													Кодовая карта
+												</legend>
+												<div class="margin-bottom-15">
+													<span>Статус - </span>
+													<?php if ( $this->code_card == 1 ) {
+														echo '<span class="label label-sm label-success">активна</span>';
+													} else if ( $this->code_card == 0 ) {
+														echo '<span class="label label-sm label-danger">не активна</span>';
+													} ?>
+												</div>
+												<div class="margin-bottom-15">
+													<form action="" method="post">
+														<?php if ( $this->code_card == 0 ) { ?>
+															<input type="submit" class="btn btn-wide btn-o btn-success" name="CodeCardRequest" value="Активировать">
+														<?php } else if ( $this->code_card == 1 ) { ?>
+															<input type="submit" class="btn btn-wide btn-o btn-danger" name="CodeCardDeactivate" value="Отключить">
+														<?php } ?>
+													</form>
+												</div>
+												<?php if ( $this->code_card == 1 ) { ?>
+													<img class="margin-bottom-15" src="/cp/public/codecard.php?code1=<?= $this->cardData['code1'] ?>&code2=<?= $this->cardData['code2'] ?>&code3=<?= $this->cardData['code3'] ?>&code4=<?= $this->cardData['code4'] ?>&code5=<?= $this->cardData['code5'] ?>&code6=<?= $this->cardData['code6'] ?>&code7=<?= $this->cardData['code7'] ?>&code8=<?= $this->cardData['code8'] ?>&code9=<?= $this->cardData['code9'] ?>&code10=<?= $this->cardData['code10'] ?>&code11=<?= $this->cardData['code11'] ?>&code12=<?= $this->cardData['code12'] ?>&code13=<?= $this->cardData['code13'] ?>&code14=<?= $this->cardData['code14'] ?>&code15=<?= $this->cardData['code15'] ?>&code16=<?= $this->cardData['code16'] ?>&code17=<?= $this->cardData['code17'] ?>&code18=<?= $this->cardData['code18'] ?>&code19=<?= $this->cardData['code19'] ?>&code20=<?= $this->cardData['code20'] ?>&code21=<?= $this->cardData['code21'] ?>&code22=<?= $this->cardData['code22'] ?>&code23=<?= $this->cardData['code23'] ?>&code24=<?= $this->cardData['code24'] ?>&code25=<?= $this->cardData['code25'] ?>&code26=<?= $this->cardData['code26'] ?>&code27=<?= $this->cardData['code27'] ?>&code28=<?= $this->cardData['code28'] ?>&code29=<?= $this->cardData['code29'] ?>&code30=<?= $this->cardData['code30'] ?>">
+												<?php } ?>
+												<div class="info">
+													При активации данной опции, Вам необходимо будет вводить определенный код с кодовой карты во время операций перевода средств или вывода их из системы
+												</div>
+											</fieldset>
+										</div>
+										<div class="col-md-7">
+											<form action="" method="post">
+												<fieldset>
+													<legend>
+														Безопасность
+													</legend>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label> Авторизация аккаунта: </label>
+																<select name="auth-type" id="auth-type" class="form-control">
+																	<?php if( $this->auth_type == 0 ) { ?>
+																	<option value="0">Выслать код на E-mail</option>
+																	<option value="1">Выслать код по Смс</option>
+																	<?php } else if ( $this->auth_type == 1 ) { ?>
+																	<option value="1">Выслать код по Смс</option>
+																	<option value="0">Выслать код на E-mail</option>
+																	<?php } ?>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label"> Восстановление пароля </label>
+																<select name="fg-type" id="fg-type" class="form-control">
+																	<?php if( $this->fg_type == 0 ) { ?>
+																	<option value="0">Выслать код на E-mail</option>
+																	<option value="1">Выслать код по Смс</option>
+																	<?php } else if ( $this->fg_type == 1 ) { ?>
+																	<option value="1">Выслать код по Смс</option>
+																	<option value="0">Выслать код на E-mail</option>
+																	<?php } ?>
+																</select>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label"> Подтверждение транзакций </label>
+																<select name="confirmation-type" id="confirmation-type" class="form-control">
+																	<?php if( $this->confirmation_type == 0 ) { ?>
+																	<option value="0">Выслать код на E-mail</option>
+																	<option value="1">Выслать код по Смс</option>
+																	<?php } else if ( $this->confirmation_type == 1 ) { ?>
+																	<option value="1">Выслать код по Смс</option>
+																	<option value="0">Выслать код на E-mail</option>
+																	<?php } ?>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-6">
+														
+														</div>
+													</div>
+												</fieldset>
+											
+												<fieldset>
+													<legend>
+														Внутренние переводы
+													</legend>										
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>  Уведомление о входящем платеже: </label>
+																<select name="in-notifications" id="in-notifications" class="form-control">
+																	<?php if( $this->in_notifications == 0 ) { ?>
+																	<option value="0">Отключено</option>
+																	<option value="1">Выслать на E-mail</option>
+																	<option value="2">По Смс</option>
+																	<?php } else if ( $this->in_notifications == 1 ) { ?>
+																	<option value="1">Выслать на E-mail</option>
+																	<option value="2">По Смс</option>
+																	<option value="0">Отключено</option>
+																	<?php } else if ( $this->in_notifications == 2 ) { ?>
+																	<option value="2">По Смс</option>
+																	<option value="1">Выслать на E-mail</option>
+																	<option value="0">Отключено</option>
+																	<?php } ?>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label class="control-label"> Уведомление о исходящем платеже: </label>
+																<select name="out-notifications" id="out-notifications" class="form-control">
+																	<?php if( $this->out_notifications == 0 ) { ?>
+																	<option value="0">Отключено</option>
+																	<option value="1">Выслать на E-mail</option>
+																	<option value="2">По Смс</option>
+																	<?php } else if ( $this->out_notifications == 1 ) { ?>
+																	<option value="1">Выслать на E-mail</option>
+																	<option value="2">По Смс</option>
+																	<option value="0">Отключено</option>
+																	<?php } else if ( $this->out_notifications == 2 ) { ?>
+																	<option value="2">По Смс</option>
+																	<option value="1">Выслать на E-mail</option>
+																	<option value="0">Отключено</option>
+																	<?php } ?>
+																</select>
+															</div>
+														</div>	
+													</div>
+												</fieldset>
+												<input type="submit" id="ProfileSettings" name="ProfileSettings" class="btn btn-primary pull-right" value="Сохранить настройки">
+											</form>
+										</div>
+									</div>												
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			<!-- end: USER PROFILE -->
+			</div>
+		</div>	
+	</div>
+	
+<!-- start: FOOTER -->
+	<footer>
+		<div class="footer-inner">
+			<div class="pull-left">
+				&copy; 2015-<span class="current-year"></span><span class="text-bold text-uppercase"> Simple Money</span>. <span>All rights reserved</span>
+			</div>
+			<div class="pull-right">
+				<span class="go-top"><i class="ti-angle-up"></i></span>
+			</div>
+		</div>
+	</footer>
+	<!-- end: FOOTER -->
+</div>
+
+<!-- Phone confirm modal -->
+<div class="modal fade in" id="phone-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="PhoneConfirm" aria-hidden="true" style="display: block; padding-right: 17px; margin-top: 15%; display: none;">
+	<div class="modal-dialog modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Подтверждение номера</h4>
+			</div>
+			<div class="modal-body">
+				<form action="" method="post">
+					<p class="text-center">На Ваш мобильный телефон был выслан код подтверждения, введите его в поле ниже:</p>
+					<div class="form-group">
+						<input type="text" id="phone-confirm-code" name="phone-confirm-code" class="form-control">
+					</div>
+					<input type="submit" id="PhoneConfirm" name="PhoneConfirm" class="btn btn-primary" value="Подтвердить">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Sms fill modal -->
+<div class="modal fade in" id="sms-fill-modal" tabindex="-1" role="dialog" aria-labelledby="SmsFill" aria-hidden="true" style="display: block; padding-right: 17px; margin-top: 15%; display: none;">
+	<div class="modal-dialog modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Пополнение SMS-баланса</h4>
+			</div>
+			<div class="modal-body">
+				<form action="" method="post">
+					<fieldset>
+						<legend>
+							SMS-счет
+						</legend>
+						<div class="form-group">
+							<input type="text" class="form-control underline" id="abbr" name="abbr" value="USD" readonly>
+						</div>
+						<div class="form-group">
+							<label class="control-label"> Сумма<span class="req">*</span> </label>
+							<input type="text" class="form-control underline" id="SmsAmount" name="SmsAmount">
+						</div>
+						<input type="submit" id="SmsFillPay" name="SmsFillPay" class="btn btn-primary" value="Продолжить">
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Sms fill confirm modal -->
+<div class="modal fade in" id="sms-fill-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="SmsFill" aria-hidden="true" style="display: block; padding-right: 17px; margin-top: 15%; display: none;">
+	<div class="modal-dialog modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Пополнение SMS-баланса</h4>
+			</div>
+			<div class="modal-body">
+				<form action="" method="post">
+					<fieldset>
+						<legend>
+							Подтверждение
+						</legend>
+						<div class="form-group">
+							<label class="control-label"> Введите код подтверждения </label>
+							<input type="text" class="form-control underline" id="SmsFillConfirmCode" name="SmsFillConfirmCode">
+						</div>
+						<input type="submit" id="SmsFillConfirm" name="SmsFillConfirm" class="btn btn-primary" value="Оплатить">
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Codecard confirm modal -->
+<div class="modal fade in" id="phone-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="CodeCard" aria-hidden="true" style="display: block; padding-right: 17px; margin-top: 15%; display: none;">
+	<div class="modal-dialog modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Кодовая карта</h4>
+			</div>
+			<div class="modal-body">
+				<form action="" method="post">
+					<p class="text-center">На Ваш мобильный телефон был выслан код подтверждения, введите его в поле ниже:</p>
+					<div class="form-group">
+						<input type="text" id="phone-confirm-code" name="phone-confirm-code" class="form-control">
+					</div>
+					<input type="submit" id="PhoneConfirm" name="PhoneConfirm" class="btn btn-primary" value="Подтвердить">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

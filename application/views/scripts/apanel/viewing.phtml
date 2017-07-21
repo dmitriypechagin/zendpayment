@@ -1,0 +1,73 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->translate("Viewing of purses")?></h4>
+			<ul class="pull-right breadcrumb">
+				<li>
+					<a href="index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i>Home</a>
+				</li>
+				<li>
+					Tables
+				</li>
+				<li>
+					Basic
+				</li>
+			</ul>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<?= $this->fForm ?>									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-12">
+			<div class="panel panel-white">
+				<div class="panel-body">
+					<h5 class="over-title margin-bottom-15">Кошельки</h5>
+					
+					<table class="table table-hover table-stripped">
+						<tr>
+							<th><?= $this->orderLink( array( 'title'=>'ID', 'filed'=>'user_id')) ?></th>
+							<th></th>
+							<th><?= $this->orderLink( array( 'title'=>'currency', 'filed'=>'object_id')) ?></th>
+							<th><?= $this->Translate("purse") ?></th>
+							<th>
+								<?= $this->orderLink( array( 'title'=>'amount', 'filed'=>'amount')) ?>
+							</th>
+						</tr>
+						<?php foreach ($this->paginator as $bo) : ?>
+						<?php $class=($i++ % 2) ? "row_even" : "row_odd"; ?>
+						<tr class="<?= $class?>">
+							<td><?= $bo->user_id ?></td>
+							<td><?= $bo->findParentRow('User')->e_mail ?></td>
+							<td><?= $bo->getObjectAbbr() ?></td>
+							<td><?= $bo->purseName() ?></td>
+							<td class="r"><?= $bo->getBalance() ?></td>
+						</tr>
+						<?php endforeach; ?>
+					</table>
+					
+					<?php echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'pagination_control.phtml'); 
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

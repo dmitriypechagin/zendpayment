@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class UserRow</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class UserRow</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Row class for model User</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Lepaysys</li>
+				<li><span class="field">version:</span> 1.0</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_UserRow.php.html">/UserRow.php</a> (line <span class="field"><a href="../__filesource/fsource_Lepaysys__UserRow.php.html#a10">10</a></span>)
+		</p>
+		
+				
+		<pre>Zend_Db_Table_Row_Abstract
+   |
+   --UserRow</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#INVALID_USER_NAME" title="details" class="const-name">INVALID_USER_NAME</a> = 					<span class="var-type"> &quot;invalidUserName&quot;</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+									<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																				<div class="method-definition">
+					static 						<span class="method-result">boolean</span>
+										<a href="#isValidUserName" title="details" class="method-name">isValidUserName</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																
+												<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getBalance" title="details" class="method-name">getBalance</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$opt</span> = <span class="var-default">array()</span>])
+									</div>
+																								<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#takeStorageCommission" title="details" class="method-name">takeStorageCommission</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodisValidUserName" id="isValidUserName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method isValidUserName</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__UserRow.php.html#a60">60</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine whether a given valid user login.</p>
+<p class="description"><p>Called from AuthForm.</p></p>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isValidUserName
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+<a name="methodgetBalance" id="getBalance"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBalance</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__UserRow.php.html#a21">21</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return user balance - amount for all purses.</p>
+<p class="description"><p>If $opt['accessible'] is TRUE blocked purses are skiped</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> BalanceRow</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getBalance
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$opt</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$opt</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtakeStorageCommission" id="takeStorageCommission"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">takeStorageCommission</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__UserRow.php.html#a39">39</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Commission collection for storage from the user.</p>
+<p class="description"><p>If user is admin commission collection from all users in system</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			takeStorageCommission
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constINVALID_USER_NAME" id="INVALID_USER_NAME"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">INVALID_USER_NAME</span>
+			 = <span class="const-default"> &quot;invalidUserName&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__UserRow.php.html#a12">12</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 24 Jan 2012 22:12:02 +0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>

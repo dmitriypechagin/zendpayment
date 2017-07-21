@@ -1,0 +1,152 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+	$(function(){			
+		$('body').addClass('login');
+	});
+</script>
+
+<div id="login">
+	<!-- start: LOGIN -->
+	<div class="row">
+		<div class="main-login col-md-12">
+			<div class="logo text-center">
+				<a href="https://sm-payment.com/"><img src="/cp/public/assets/images/logo-big.png" alt="{{app.name}}" class="img-responsive" /></a>
+			</div>
+			<?php
+				if ( isset($_SESSION['zh_step']) AND $_SESSION['zh_step'] == 4 )
+				{
+			?>
+			<p class="text-center">Поздравляем, регистрация успешно завершена!</p>
+			<?php
+				}
+				elseif ( isset($_SESSION['zh_step']) AND $_SESSION['zh_step'] == 3 )
+				{
+			?>
+			<p class="text-center text-dark text-bold text-extra-large margin-top-15">Создание нового аккаунта шаг 3</p>
+			<p class="text-center margin-top-15">Введите необходимые данные в форму и завершите регистрацию</p>
+			<div class="box-login">
+				<form id="zh_form" class="form-login" action="" method="POST">
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_sayHi) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_sayHi; ?></span>
+						<?php
+							}
+						?>
+						<input id="sign-up-name" name="sayHi" type="text" class="form-control" placeholder="Ваша приветственная фраза" data-toggle="tooltip" data-placement="bottom" title="Данная форма заполняется для дополнительной безопасности вашего аккаунта при входе в систему" value="<?php echo isset($_POST['sayHi']) ? htmlspecialchars($_POST['sayHi']) : ''; ?>">
+					</div>
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_PIN) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_PIN; ?></span>
+						<?php
+							}
+						?>
+						<input id="zh_PIN" name="PIN" type="text" class="form-control hasKeypad" placeholder="PIN" data-toggle="tooltip" data-placement="bottom" title="Используется при входе в систему, рекомендуемый обьем - 5 знаков" value="<?php echo isset($_POST['PIN']) ? htmlspecialchars($_POST['PIN']) : ''; ?>" readonly>
+					</div>
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_password) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_password; ?></span>
+						<?php
+							}
+						?>
+						<input id="sign-up-name" name="password" type="password" class="form-control" placeholder="Пароль" data-toggle="tooltip" data-placement="bottom" title="Используется при входе в систему">
+					</div>
+					<div class="form-group">
+						<input id="sign-up-name" name="repeatPassword" type="password" class="form-control" placeholder="Подтверждение пароля">
+					</div>
+					<input id="zh_button" type="button" class="btn btn-red btn-block" value="Продолжить регистрацию">
+				</form>
+			</div>
+			<?php
+				}
+				elseif ( isset($_SESSION['zh_step']) AND $_SESSION['zh_step'] == 2 )
+				{
+			?>
+			<p class="text-center text-dark text-bold text-extra-large margin-top-15">Создание нового аккаунта шаг 2</p>
+			<p class="text-center margin-top-15">На Ваш e-mail выслан 8 значный код, введите его в форму ниже что бы продолжить регистрацию</p>
+			<div class="box-login">
+				<form id="zh_form" class="form-login" action="" method="POST">
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_code) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_code; ?></span>
+						<?php
+							}
+						?>
+						<input name="code" value="" type="text" class="form-control" placeholder="Код подтверждения">
+					</div>
+					<input id="zh_button" type="button" class="btn btn-red btn-block" value="Продолжить регистрацию">
+				</form>
+			</div>
+			<?php
+				}
+				else
+				{
+			?>
+			<p class="text-center text-dark text-bold text-extra-large margin-top-15">Создание нового аккаунта</p>
+			<div class="box-login">
+				<form id="zh_form" class="form-login" action="" method="POST">
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_email) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_email; ?></span>
+						<?php
+							}
+						?>
+						<input name="email" value="" type="text" class="form-control" placeholder="E-mail адрес">
+					</div>
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_keep_me_logged_in) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_keep_me_logged_in; ?></span>
+						<?php
+							}
+						?>
+						<div class="checkbox clip-check check-primary">
+							<input type="checkbox" id="keep_me_logged_in" name="keep_me_logged_in" value="1" <?php echo isset($_POST['keep_me_logged_in']) ? 'checked' : ''; ?>>
+							<label for="keep_me_logged_in">Согласен с <a href="/politic.html" target="_blank">документацией сайта</a></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_recaptcha) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_recaptcha; ?></span>
+						<?php
+							}
+						?>
+						<div class="g-recaptcha" data-sitekey="6LdK7CgTAAAAADuDa8bsEp4M6Qnj08km3mhJpzYv"></div>
+					</div>
+					<input id="zh_button" type="button" class="btn btn-red btn-block" value="Шаг 2">
+				</form>
+			</div>
+			<?php
+				}
+			?>
+			<div class="new-account text-center">
+				<a href="/cp"> Авторизация </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="zh_keypad" style="border: 1px solid #cecece;display:none;position: absolute;background:white;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);color: black;width: 182px;padding:10px;border-radius:3px;"></div>
+
+<script>
+
+document.getElementById("zh_button").onclick = function() {
+	document.getElementById("zh_form").submit();
+}
+
+</script>
+
+
+<?= $this->message() ?>

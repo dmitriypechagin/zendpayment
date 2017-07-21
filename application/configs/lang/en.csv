@@ -1,0 +1,21 @@
+?# English
+step1;Connection to a database
+dbname;Database name
+host;Host name
+username;User name
+password;Password
+step2;Creation of tables
+Table_prefix;Prefix of a title of tables
+step3;Creation of the login account of the manager
+step4;System preferences
+purseLength;Number of symbols in a purse name
+abbrLength;Amount of characters of the reduced name of currency
+Menu;Menu
+Head Page;Head Page
+fill up a purse;Add funds
+Conclusion of means;Withdrawal
+Issue and repayment;Issue and removal
+Course concerning base currency;Rate relative to base
+Means from accounts will be irrevocably remote;Funds from the accounts of all users (of these currency) will be irrevocably removed.
+Add funds text;Transfer funds into the bank account of the system and the appropriate ammount will be transfered into your account
+adapter;Adapter

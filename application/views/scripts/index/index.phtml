@@ -1,0 +1,119 @@
+<script>	
+	$('body').addClass('login');
+</script>
+
+<div id="login">
+	<!-- start: LOGIN -->
+	<div class="row">
+		<div class="main-login col-md-12">
+			<div class="logo text-center">
+				<a href="https://sm-payment.com/"><img src="/cp/public/assets/images/logo-big.png" alt="{{app.name}}" class="img-responsive" /></a>
+			</div>
+			<?php
+
+				if ( isset($_SESSION['zh_aut_step']) AND $_SESSION['zh_aut_step'] == 2 )
+				{
+
+			?>
+			<h1></h1>
+			<p></p>
+			<p class="text-center">
+				Укажите ваши данные для авторизации
+			</p>
+			<p class="text-center">
+				Ваша приветственная фраза: <?php echo htmlspecialchars($_SESSION['zh_sayHi']); ?>
+			</p>
+			<!-- start: LOGIN BOX -->
+			<div class="box-login">
+				<form id="zh_form" class="form-login"  action="" method="POST">
+					<div class="form-group">
+					<?php
+
+						if ( isset($this->err_password) ) {
+
+					?>
+						<span class="help-block"><?php echo $this->err_password; ?></span>
+						<span class="help-block"><?php echo $this->err_code; ?></span>
+					<?php
+						}
+					?>
+						<input id="defaultKeypad" name="password" type="password" class="form-control hasKeypad" placeholder="Ваш пароль">
+						<p class="margin-top-15">Вам выслан код подтверждения, введите его в поле ниже:</p>
+						<input name="auth_code" type="text" class="form-control" placeholder="Код подтверждения">
+					</div>
+					
+					<input id="zh_button" type="submit" class="btn btn-red btn-block" value="Войти">
+				</form>
+				
+				<?php
+
+					}
+					else
+					{
+
+				?>
+				
+				<p class="text-center" style="
+    font-size: 17px;
+    margin-top: 10px;
+">
+					Укажите ваши данные для авторизации:
+				</p>
+				<!-- start: LOGIN BOX -->
+				<div class="box-login">
+					<form id="zh_form" class="form-login"  action="" method="POST">
+						<div class="form-group">
+						<?php
+
+							if ( isset($this->err_id) ) {
+
+						?>
+							<span class="help-block"><?php echo $this->err_id; ?></span>
+						<?php
+							}
+						?>
+							<input type="text" id="sign-up-name" name="id" class="form-control" placeholder="ID" value="<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>">
+						</div>
+						<div class="form-group">
+						<?php
+
+							if ( isset($this->err_PIN) ) {
+
+						?>
+							<span class="help-block"><?php echo $this->err_PIN; ?></span>
+						<?php
+							}
+						?>
+							<input id="zh_PIN" name="PIN" type="text" class="form-control hasKeypad" placeholder="PIN" value="<?php echo isset($_POST['PIN']) ? htmlspecialchars($_POST['PIN']) : ''; ?>" readonly>
+						</div>
+						
+						<input id="zh_button" type="submit" class="btn btn-red btn-block" value="Войти">
+					</form>
+					<?php
+						}
+					?>
+
+					<div class="new-account text-center">
+					<a href="https://sm-payment.com/cp/index/forgot"> Забыли пароль? </a><br/>
+						Еще не зарегистрировались?
+						<a href="/cp/index/reg"> Создайте аккаунт сейчас </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="zh_keypad" style="border: 1px solid #cecece;display:none;position: absolute;background:white;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);color: black;width: 182px;padding:10px;border-radius:3px;"></div>
+
+<?= $this->message ?>
+
+
+
+	
+
+
+
+
+
+

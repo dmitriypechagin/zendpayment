@@ -1,0 +1,27 @@
+<?= $this->rForm ?>
+<table>
+<tr>
+  <td>ID транзакции</td>
+  <td>Дата транзакции</td>
+  <td>Отправитель</td>
+  <td>Получатель</td>
+  <td>Сумма</td>
+  <td>Тип</td>  
+  <td>Примечание</td>
+</tr>
+   <?php foreach ($this->paginator as $tr) : ?>
+<tr>
+  <td><?= $tr->transaction_id ?></td>
+  <td><?= $tr->date ?></td>
+  <td><?= $tr->purseNameFrom() ?></td>
+  <td><?= $tr->purseNameTo() ?></td>
+  <td><?= $tr->amount ?></td>
+  <td><?= $tr->getTable()->typeById($tr->type) ?></td>  
+  <td><?= $tr->description ?></td>
+</tr>
+   <?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'pagination_control.phtml'); ?>

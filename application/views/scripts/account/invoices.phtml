@@ -1,0 +1,425 @@
+<div id="app">
+	<!-- sidebar -->
+	<div class="sidebar app-aside" id="sidebar">
+		<div class="sidebar-container perfect-scrollbar">
+			<div>
+				<!-- start: SEARCH FORM -->
+				<div class="search-form hidden-md hidden-lg">
+					<a class="s-open" href="#"> <i class="ti-search"></i> </a>
+					<form class="navbar-form" role="search">
+						<a class="s-remove" href="#" target=".navbar-form"> <i class="ti-close"></i> </a>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<button class="btn search-button" type="submit">
+								<i class="ti-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<!-- end: SEARCH FORM -->
+				<!-- start: USER OPTIONS -->
+				<div class="nav-user-wrapper">
+					<div class="media">
+						<div class="media-body">
+							<span class="media-heading text-white"> ID: <?=$_SESSION['zh_user_id']; ?> </span>
+							<div class="text-small text-white-transparent">
+								<?php 
+									if ( $this->account_type == 0 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Standart</span>';
+									}
+									else if ( $this->account_type == 1 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Premium</span>';
+									}
+									else if ( $this->account_type == 2 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Business</span>';
+									}
+									else if ( $this->account_type == 3 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">VIP</span>';
+									}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: USER OPTIONS -->
+				<nav>
+					<!-- start: MAIN NAVIGATION MENU -->
+					<div class="navbar-title">
+						<span>Главное меню</span>
+					</div>
+					<ul class="main-navigation-menu">
+						<li>
+							<a href="/cp/account" class="profile-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="item-inner">
+										<span class="title"> Профиль </span>
+									</div>
+								</div> 
+							</a>
+						</li>
+						<?php echo $this->navigation()->menu()->setPartial("topMenu.phtml")->renderPartial(); ?>
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- / sidebar -->
+	<div class="app-content">
+		<!-- start: TOP NAVBAR -->
+		<header class="navbar navbar-default navbar-static-top">
+			<!-- start: NAVBAR HEADER -->
+			<div class="navbar-header">
+				<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/cp/account"> <img src="/cp/public/assets/images/logo.png" alt="Packet"/> </a>
+				<a class="navbar-brand navbar-brand-collapsed" href="/cp/account"> <img src="/cp/public/assets/images/logo-collapsed.png" alt="" /> </a>
+
+				<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+					<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i><small><i class="fa fa-caret-down margin-left-5"></i></small>
+				</button>
+			</div>
+			<!-- end: NAVBAR HEADER -->
+			<!-- start: NAVBAR COLLAPSE -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-left hidden-sm hidden-xs">
+					<li class="sidebar-toggler-wrapper">
+						<div>
+							<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
+					</li>		
+				</ul>
+				<ul class="nav navbar-right">
+					<!-- start: LANGUAGE SWITCHER -->
+					<li class="dropdown">
+						<a href class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-flag-o" style="vertical-align: middle; padding: 0px 5px;" aria-hidden="true"></i> </a>
+						<ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+							<li>
+								<a href="<?= $this->url( array('lang'=>'en') ) ?>" class="menu-toggler"> English </a>
+							</li>
+							<li>
+								<a href="<?= $this->url( array('lang'=>'ru') ) ?>" class="menu-toggler"> Русский </a>
+							</li>
+						</ul>
+					</li>
+					<!-- end: LANGUAGE SWITCHER -->
+							
+					<li><a href="/cp/account/logout"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;</a></li>
+							
+				</ul>
+				<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+				<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+			</div>
+					
+			<!-- end: NAVBAR COLLAPSE -->
+		</header>
+		<!-- end: TOP NAVBAR -->
+		
+		<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Invoices") ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="tabbable">
+								<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+									<li class="active">
+										<a data-toggle="tab" href="#panel_create"> Выставление счета </a>
+									</li>
+									<li>
+										<a data-toggle="tab" href="#panel_inbox"> Входящие </a>
+									</li>
+									<li>
+										<a data-toggle="tab" href="#panel_outbox"> Исходящие </a>
+									</li>
+									<li>
+										<a data-toggle="tab" href="#panel_payed"> Оплаченные </a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="panel_create" class="tab-pane fade in active">
+										<div class="row">
+											<div class="col-md-6 col-xs-12">
+												<form action="" method="post">
+													<fieldset>
+														<legend>
+															Выставить счет
+														</legend>
+														<div class="form-group">
+															<label class="control-label"> Выберите валюту </label>
+															<select  name="abbr" id="abbr" class="form-control">
+																<option selected="" disabled="">Выберите из списка</option>
+																<option value="RUB">RUB</option>
+																<option value="USD">USD</option>
+																<option value="GLD">GLD</option>
+																<option value="EUR">EUR</option>
+																<option value="UAH">UAH</option>
+																<option value="GBP">GBP</option>
+																<option value="JPY">JPY</option>
+																<option value="CNY">CNY</option>
+																<option value="SPM">SPM</option>		
+															</select>
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Кому (ID пользователя)<span class="req">*</span> </label>
+															<input type="text" class="form-control" id="to_user_id" name="to_user_id">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Сумма<span class="req">*</span> </label>
+															<input type="text" class="form-control" id="amount" name="amount">
+														</div>
+														<div class="form-group">
+															<label class="control-label"> Примечание </label>
+															<input type="text" class="form-control" id="note" name="note" data-toggle="tooltip" data-placement="bottom" title="Укажите информацию для получателя">
+														</div>
+														<input type="submit" id="InvoiceCreate" name="InvoiceCreate" class="btn btn-primary pull-right" value="Выставить">
+													</fieldset>
+												</form>
+												<?php if ( $this->Commissions ) :?>
+													<script type="text/javascript">
+														var comm=Array();
+														<?php foreach ($this->Commissions as $comm) : ?>
+															comm['<?= $comm->findParentRow('Object', 'object_from')->abbr ?>'] = <?= $comm->commission ?> ;
+														<?php endforeach; ?>
+													</script>
+												<?php endif; ?>
+											</div>
+											<div class="col-md-6 col-xs-12">
+												<fieldset>
+													<legend>
+														Информация
+													</legend>
+													<span>
+														На данной странице Вы можете выставить счет на оплату любому лицу или компании, которые зарегистрированы в Simple Money. Для этого заполните поля формы и нажмите на кнопку «Выставить».<br><br>
+														<span class="req">*</span> - Поля, обязательные для заполнения, отмечены.
+													</span>
+												</fieldset>
+											</div>
+										</div>
+									</div>
+									<div id="panel_inbox" class="tab-pane fade">
+										<div class="row">
+											<div class="col-md-6 col-xs-12">
+												<table class="table table-stylish">
+													<thead>
+														<tr>
+															<th class="center no-border">№</th>
+															<th class="no-border">Кому</th>
+															<th class="hidden-xs no-border">Сумма</th>
+															<th class="no-border">Сумма с комиссией</th>
+															<th class="hidden-xs no-border">Комментарий</th>
+															<th class="no-border"></th>
+														</tr>
+													</thead>
+													<tbody>
+														<?php for ($i = 0, $amountOfInvoices = count($this->inbox); $i < $amountOfInvoices; $i++) { ?>
+															<?php if ( $this->inbox[$i]['status'] == 0 ) { ?>
+																<form action="" method="post">
+																	<tr>
+																		<td class="center"><?php echo $this->inbox[$i]['invoice_id']; ?></td>
+																		<td class="hidden-xs"><?php echo $this->inbox[$i]['user_id']; ?></td>
+																		<td><?php echo $this->inbox[$i]['amount']; ?> <?php echo $this->inbox[$i]['object_abbr']; ?></td>
+																		<td><?php echo $this->inbox[$i]['amount_with_comm']; ?> <?php echo $this->inbox[$i]['object_abbr']; ?></td>
+																		<td class="hidden-xs"><?php echo $this->inbox[$i]['description']; ?></td>
+																		<td class="center">
+																			<input type="hidden" name="invoice_id" value="<?php echo $this->inbox[$i]['invoice_id']; ?>">
+																			<input type="submit" name="InvoicePay" class="btn btn-primary" value="Оплатить">
+																		</td>
+																	</tr>
+																</form>
+															<?php } ?>
+														<?php } ?>
+													</tbody>
+												</table>
+											</div>
+											<div class="col-md-6 col-xs-12">
+												<fieldset>
+													<legend>
+														Информация
+													</legend>
+													<span>
+														На данной странице Вы можете проверить и оплатить выставленные Вам для оплаты счета от пользователей Simple Money.
+													</span>
+												</fieldset>
+											</div>
+										</div>
+									</div>
+									<div id="panel_outbox" class="tab-pane fade">
+										<div class="row">
+											<div class="col-md-6 col-xs-12">
+												<table class="table table-stylish">
+													<thead>
+														<tr>
+															<th class="center no-border">№</th>
+															<th class="no-border">Кому</th>
+															<th class="hidden-xs no-border">Сумма</th>
+															<th class="hidden-xs no-border">Комментарий</th>
+															<th class="no-border">Статус</th>
+														</tr>
+													</thead>
+													<tbody>
+														<?php for ($i = 0, $amountOfOutbox = count($this->outbox); $i < $amountOfOutbox; $i++) { ?>
+															<tr>
+																<td class="center"><?php echo $this->outbox[$i]['invoice_id']; ?></td>
+																<td class="hidden-xs"><?php echo $this->outbox[$i]['to_user_id']; ?></td>
+																<td><?php echo $this->outbox[$i]['amount']; ?> <?php echo $this->outbox[$i]['object_abbr']; ?></td>
+																<td class="hidden-xs"><?php echo $this->outbox[$i]['description']; ?></td>
+																<td class="center">
+																	<?php if ( $this->outbox[$i]['status'] == 0 ) {
+																		echo '<span class="label label-sm label-danger">не оплачен</span>';
+																	}
+																	else if ( $this->outbox[$i]['status'] == 1 ) {
+																		echo '<span class="label label-sm label-success">оплачен</span>';
+																	} ?>
+																</td>
+															</tr>
+														<?php } ?>
+													</tbody>
+												</table>
+											</div>
+											<div class="col-md-6 col-xs-12">
+												<fieldset>
+													<legend>
+														Информация
+													</legend>
+													<span>
+														На данной странице Вы можете просмотреть выставленные Вами  счета пользователям Simple Money.
+													</span>
+												</fieldset>
+											</div>
+										</div>
+									</div>
+									<div id="panel_payed" class="tab-pane fade">
+										<div class="row">
+											<div class="col-md-6 col-xs-12">
+												<table class="table table-stylish">
+													<thead>
+														<tr>
+															<th class="center no-border">№</th>
+															<th class="no-border">Кому</th>
+															<th class="hidden-xs no-border">Сумма</th>
+															<th class="no-border">Сумма с комиссией</th>
+															<th class="hidden-xs no-border">Комментарий</th>
+														</tr>
+													</thead>
+													<tbody>
+														<?php for ($i = 0, $amountOfInvoices = count($this->inbox); $i < $amountOfInvoices; $i++) { ?>
+															<?php if ( $this->inbox[$i]['status'] == 1 ) { ?>
+																<tr>
+																	<td class="center"><?php echo $this->inbox[$i]['invoice_id']; ?></td>
+																	<td class="hidden-xs"><?php echo $this->inbox[$i]['user_id']; ?></td>
+																	<td><?php echo $this->inbox[$i]['amount']; ?> <?php echo $this->inbox[$i]['object_abbr']; ?></td>
+																	<td><?php echo $this->inbox[$i]['amount_with_comm']; ?> <?php echo $this->inbox[$i]['object_abbr']; ?></td>
+																	<td class="hidden-xs"><?php echo $this->inbox[$i]['description']; ?></td>
+																</tr>
+															<?php } ?>
+														<?php } ?>
+													</tbody>
+												</table>
+											</div>
+											<div class="col-md-6 col-xs-12">
+												<fieldset>
+													<legend>
+														Информация
+													</legend>
+													<span>
+														На данной странице Вы можете просмотреть оплаченные  Вами  счета.
+													</span>
+												</fieldset>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	
+<!-- start: FOOTER -->
+	<footer>
+		<div class="footer-inner">
+			<div class="pull-left">
+				&copy; 2015-<span class="current-year"></span><span class="text-bold text-uppercase"> Simple Money</span>. <span>All rights reserved</span>
+			</div>
+			<div class="pull-right">
+				<span class="go-top"><i class="ti-angle-up"></i></span>
+			</div>
+		</div>
+	</footer>
+	<!-- end: FOOTER -->
+</div>
+
+<!-- Invoice pay confirm modal -->
+<div class="modal fade in" id="invoice-pay-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="InvoicePay" aria-hidden="true" style="display: block; padding-right: 17px; margin-top: 15%; display: none;">
+	<div class="modal-dialog modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Подтверждение транзакции</h4>
+			</div>
+			<div class="modal-body">
+				<form action="" method="post">
+					<fieldset>
+						<legend>
+							Подтверждение
+						</legend>
+						<div class="form-group">
+							<label class="control-label"> Введите код подтверждения </label>
+							<input type="text" class="form-control underline" id="InvoicePayConfirmCode" name="InvoicePayConfirmCode">
+						</div>
+						<input type="submit" id="InvoicePayConfirm" name="InvoicePayConfirm" class="btn btn-primary" value="Оплатить">
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+( function($){
+	$(document).ready(function () {
+		$('#amount,#commission').keyup( function() {
+			var val=$('#amount').val().replace(/,/,'.');
+			var comm=$('#commission').html().replace(/,/,'.');
+			$('#summa').val( val*(1+comm/100) ); 
+		});	
+
+		$('#abbr').change( function() {
+			var val=$(this).val();
+			$('.commission-row').css("display", "block");
+			var abbr=val.substr(0,<?= Zend_Registry::get('purse')->abbrLength ?>);
+			$('#commission').html( comm[val] ? comm[val] : '');
+			$('#commissionInput').val( comm[val] ? comm[val] : '');
+			$('#amount').keyup(); 
+		}).keyup();
+			
+		$('#purse,#amount,#commission').change( function() { $(this).keyup(); });
+	});	
+})(jQuery);
+</script>

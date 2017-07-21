@@ -1,0 +1,56 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->userddata ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<form method="post" action="">
+<table class="form_table" cellspacing="0" cellpadding="0" border="0"><tr>
+<tr><td id="purse-label"><label for="purse" class="required"><?= $this->Translate("Purse of the addressee") ?></label></td>
+<td>
+<?= $this->values['purse'] ?></td></tr>
+<tr><td id="amount-label"><label for="amount" class="required"><?= $this->Translate("amount") ?></label></td>
+<td>
+<?= $this->values['amount'] ?></td></tr>
+<tr><td id="note-label"><label for="note" class="optional"><?= $this->Translate("note") ?></label></td>
+<td>
+<?= $this->values['note'] ?></td></tr>
+<tr><td id="commission-label"><label for="commission" class="optional"><?= $this->Translate("commission") ?></label></td>
+<td>
+<?= $this->values['commission'] ?></td></tr>
+<tr><td id="summa-label"><label for="summa" class="optional"><?= $this->Translate("total") ?></label></td>
+<td>
+<?= $this->values['summa'] ?></td></tr>
+<tr>
+<td>
+<label for="confirmCode">Код подтверждения:</label>
+</td>
+<td>
+<input type="text" name="confirmCode" id="confirmCode" placeholder="57c8249e">
+</td>
+<td>
+<input type="submit" name="Change" id="Change" value="<?= $this->Translate("change") ?>" class="submit">
+</td><td>
+<input type="submit" name="Confirm" id="Confirm" value="<?= $this->Translate("send") ?>" class="submit"></td></tr></tr></table>
+</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

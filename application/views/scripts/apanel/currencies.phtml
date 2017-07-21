@@ -1,0 +1,87 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->translate("Currencies") ?></h4>
+			<ul class="pull-right breadcrumb">
+				<li>
+					<a href="index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i>Home</a>
+				</li>
+				<li>
+					Tables
+				</li>
+				<li>
+					Basic
+				</li>
+			</ul>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<?= $this->translate($this->nocurrencies) ?>
+									<?php if ( count($this->currencies) ): ?>
+										<h5 class="over-title margin-bottom-15"><?= $this->translate("System currencies") ?></h5>
+										<table class="table table-hover">
+											<tr> 
+												<th> <?= $this->translate("Abbreviation") ?></th>
+												<th> <?= $this->translate("Full name") ?></th>
+												<th></th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr> 
+										<? foreach ( $this->currencies as $currency ) : ?>
+										<? 
+										//    var_dump( $currency->getAvailableCommissionToObject( $this->baseObject ) );
+										if ( $currency->getAvailableCommissionToObject( $this->baseObject ) ) { 
+											$confirmText1 = $this->translate("Means from accounts will be converted in basic currency");
+										} else { 
+											$confirmText1 = $this->translate("Means from accounts will be irrevocably remote");
+										}
+											$confirmText2 = $this->translate("You are sure?"); 	 
+										?>
+											<tr>
+												<td> <?= $currency->abbr ?></td>
+												<td> <?= $currency->name ?></td>
+												<td> <?= ($currency->base) ? $this->translate("Base") : "" ?></td>
+												<td><? if (!$currency->base) :?>
+														<a href='<?= $this->url( array( 'act' => 'base', 'currency' => $currency->object_id))?>'><?= $this->translate("Make base")?></a>
+													<?php endif; ?>
+												</td>	
+												<td>
+													<a href='<?= $this->url( array( 'act' => 'edit', 'currency' => $currency->object_id))?>'><img  src="<?= $this->baseUrl() ?>/css/img/icon_edit.png" alt="<?= $this->translate("Edit")?>" title="<?= $this->translate("Edit")?>"></a>
+												</td>
+												<td><? if (!$currency->base) :?>
+														<a href='<?= $this->url( array( 'act' => 'delete', 'currency' => $currency->object_id))?>' onclick=' if (!confirm("<?= $confirmText1; ?>\n<?= $confirmText2; ?>")) { return false; }'><img src="<?= $this->baseUrl() ?>/css/img/icon_delete.png" alt="<?= $this->translate("Delete")?>" title="<?= $this->translate("Delete")?>"></a>
+													<?php endif; ?>
+												</td>
+											</tr>
+										<?php endforeach; ?>
+										</table>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-12">
+			<div class="panel panel-white">
+				<div class="panel-body">
+					<h5 class="over-title margin-bottom-15"><?= $this->translate($this->addCurForm->_type) ?><</h5>
+					<?= $this->addCurForm ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

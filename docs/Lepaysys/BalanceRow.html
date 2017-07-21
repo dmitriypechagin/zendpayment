@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class BalanceRow</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class BalanceRow</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Row class for model Balance</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Lepaysys</li>
+				<li><span class="field">version:</span> 1.0</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_BalanceRow.php.html">/BalanceRow.php</a> (line <span class="field"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a10">10</a></span>)
+		</p>
+		
+				
+		<pre>Zend_Db_Table_Row_Abstract
+   |
+   --BalanceRow</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#NO_MEANS" title="details" class="const-name">NO_MEANS</a> = 					<span class="var-type"> &quot;There are no means&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#NO_VALID_PURSE" title="details" class="const-name">NO_VALID_PURSE</a> = 					<span class="var-type"> &quot;The purse '%value%' doesn't exist&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#PURSE_BLOCKED" title="details" class="const-name">PURSE_BLOCKED</a> = 					<span class="var-type"> &quot;Operations with the blocked purse are inaccessible&quot;</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$purse" title="details" class="var-name">$purse</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																												
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#change" title="details" class="method-name">change</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$amount</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBalance" title="details" class="method-name">getBalance</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getBlocked" title="details" class="method-name">getBlocked</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getObjectAbbr" title="details" class="method-name">getObjectAbbr</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isValidAllPurseName" title="details" class="method-name">isValidAllPurseName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isValidPurseName" title="details" class="method-name">isValidPurseName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#purseName" title="details" class="method-name">purseName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBlocked" title="details" class="method-name">setBlocked</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$desc</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#takeStorageCommission" title="details" class="method-name">takeStorageCommission</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$purse" id="$purse"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$purse</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a16">16</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodchange" id="change"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">change</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a108">108</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Change of an amount of means on a purse</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			change
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$amount</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$amount</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBalance" id="getBalance"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBalance</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a73">73</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return formated amount</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBalance
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetBlocked" id="getBlocked"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBlocked</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a24">24</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return string type balance</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Lepaysys/Balance.html#var$strBlocked">Balance::$strBlocked</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getBlocked
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetObjectAbbr" id="getObjectAbbr"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getObjectAbbr</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a83">83</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return reduced name for parent object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getObjectAbbr
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisValidAllPurseName" id="isValidAllPurseName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isValidAllPurseName</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a62">62</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine whether a given purse name for all objects include deleted</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isValidAllPurseName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: Purse name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisValidPurseName" id="isValidPurseName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isValidPurseName</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a50">50</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine whether a given purse name for non deleted objects</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isValidPurseName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: Purse name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodpurseName" id="purseName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">purseName</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a33">33</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return purse name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			purseName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetBlocked" id="setBlocked"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBlocked</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a95">95</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set blocking type purse.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Lepaysys/Balance.html#var$strBlocked">Balance::$strBlocked</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBlocked
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$desc</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$value</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$desc</span><span class="var-description">: Description blocking</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtakeStorageCommission" id="takeStorageCommission"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">takeStorageCommission</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a120">120</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Commission collection for storage</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			takeStorageCommission
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constNO_MEANS" id="NO_MEANS"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NO_MEANS</span>
+			 = <span class="const-default"> &quot;There are no means&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a14">14</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constNO_VALID_PURSE" id="NO_VALID_PURSE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NO_VALID_PURSE</span>
+			 = <span class="const-default"> &quot;The purse '%value%' doesn't exist&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a12">12</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constPURSE_BLOCKED" id="PURSE_BLOCKED"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PURSE_BLOCKED</span>
+			 = <span class="const-default"> &quot;Operations with the blocked purse are inaccessible&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__BalanceRow.php.html#a13">13</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 24 Jan 2012 22:12:00 +0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>

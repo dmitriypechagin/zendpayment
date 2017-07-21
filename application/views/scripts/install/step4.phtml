@@ -1,0 +1,8 @@
+<h3> <?= $this->translate('step4')?></h3>
+<?= $this->message() ?>
+<? if ( isset($this->messageLink) ): ?> 
+<a href='<?= $this->url(array( 'controller' => 'index', 'action' => 'index'))?>'>
+	<?= $this->message($this->messageLink)?>
+</a>
+<? endif ?>
+<?= $this->form ?>

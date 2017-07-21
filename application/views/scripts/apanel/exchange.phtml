@@ -1,0 +1,169 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Exchange rate and commission"); ?></h4>
+			<ul class="pull-right breadcrumb">
+				<li>
+					<a href="index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i>Home</a>
+				</li>
+				<li>
+					Tables
+				</li>
+				<li>
+					Basic
+				</li>
+			</ul>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<form method='post' action=''>
+										<h5 class="over-title margin-bottom-15"><?= $this->Translate("Rates and exchange"); ?></h5>
+										<table class="table table-hover table-stripped">
+											<tr>
+												<th><?= $this->Translate("exchange rate"); ?></th>
+												<th><?= $this->Translate("available"); ?></th>
+												<th><?= $this->Translate("exchange commission"); ?></th>
+												<th><?= $this->Translate("total"); ?></th>
+											</tr>
+										<?php foreach ($this->nonBaseCur as $cur):?>
+											<? $class= ($i++ % 2) ? "row_even" : "row_odd" ?>
+											<tbody>
+												<tr class="<?= $class ?> double">
+													<td rowspan="2"><?= $this->baseCur->abbr?>/<?= $cur->abbr?><input class="si" type="text" id='course<?= $cur->object_id ?>' value='<?= $cur->course ?>' name='course[<?= $cur->object_id ?>]' /></td>
+													<td><?= $this->baseCur->abbr ?> &rArr; <?= $cur->abbr?>:<?= $this->formCheckbox("available[{$this->baseCur->object_id}][{$cur->object_id}]",$this->baseCur->getAvailableCommissionToObject($cur), NULL, array(1,0) )?></td>
+													<td>  <input class="si" type="text" id='commission<?= $this->baseCur->object_id ?><?= $cur->object_id ?>' name='commission[<?= $this->baseCur->object_id ?>][<?= $cur->object_id ?>]' value='<?= $this->baseCur->getCommissionToObject($cur)?>'>%</td>
+													<td class="r">
+														<?= $this->Translate("The user gives") ?><input class="si" type="text" id='fromBase'><?= $this->baseCur->abbr ?>, 
+														<?= $this->Translate("receives") ?> <input class="si" type="text" id='toCur'><?= $cur->abbr?>
+													</td>
+												</tr>
+												<tr class="<?= $class ?> double2">
+													<td><?= $cur->abbr?> &rArr; <?= $this->baseCur->abbr ?>:<?= $this->formCheckbox("available[{$cur->object_id}][{$this->baseCur->object_id}]",$cur->getAvailableCommissionToObject($this->baseCur), NULL, array(1,0) )?></td>
+													<td>  <input class="si" type="text" id='commission<?= $cur->object_id ?><?= $this->baseCur->object_id ?>' name='commission[<?= $cur->object_id ?>][<?= $this->baseCur->object_id ?>]' value='<?= $cur->getCommissionToObject($this->baseCur)?>'>%</td>
+													<td class="r">
+														<?= $this->Translate("The user gives") ?> <input class="si" type="text" id='fromCur' /><?= $cur->abbr?>, 
+														<?= $this->Translate("receives") ?> <input class="si" type="text" id='toBase' /><?= $this->baseCur->abbr ?>
+													</td>
+												</tr>
+											</tbody> 
+										<?php endforeach;?>
+										</table>
+										<?= $this->formSubmit('Submit',$this->translate('Save'), array("class" => "submit") ) ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-12">
+			<div class="row">
+				<div class="panel panel-white">
+					<div class="panel-body">
+						<h5 class="over-title margin-bottom-15"><?= $this->Translate("Transfer"); ?><</h5>
+						<table class="table table-hover table-stripped" id='transfer'>
+							<tr>
+								<th><?= $this->Translate("total"); ?></th>
+								<th><?= $this->Translate("total"); ?></th>
+							</tr>
+							<?php foreach ($this->allCur as $cur):?>
+							<? $class= ($j++ % 2) ? "row_even" : "row_odd" ?>
+							<tr class="<?= $class ?>" >
+								<td><?= $cur->abbr?> &rArr; <?= $cur->abbr?>:  <input class="si" type="text" id='commission<?= $cur->object_id ?><?= $cur->object_id ?>' name='commission[<?= $cur->object_id ?>][<?= $cur->object_id ?>]' value='<?= $cur->getCommissionToObject($cur) ?>'/>%</td>
+								<td class="r">
+									<?= $this->Translate("The user gives") ?> <input class="si" type="text" value="1" ><?= $cur->abbr?>, 
+									<?= $this->Translate("receives") ?> <input class="si trres" type="text" value="0.5" /><?= $cur->abbr?>
+								</td>
+							</tr>
+							<?php endforeach;?>
+						</table>
+						<?= $this->formSubmit('Submit',$this->translate('Save'), array("class" => "submit") ) ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-12">
+			<div class="row">
+				<div class="panel panel-white">
+					<div class="panel-body">
+						<h5 class="over-title margin-bottom-15"><?= $this->Translate("Storage"); ?><</h5>
+						<table class="table table-hover table-stripped">
+							<tr>
+								<th><?= $this->Translate("storage commission"); ?></th>
+							</tr>
+							<?php foreach ($this->allCur as $cur):?>
+							<? $class= ($k++ % 2) ? "row_even" : "row_odd" ?>
+							<tr class="<?= $class ?>" >
+								<td class="r"><?= $cur->abbr ?> <input class="si" type="text" name='storage[<?= $cur->object_id?>][storage]' value='<?= $cur->storage ?>'/>% &nbsp; 
+									<?= $this->formSelect("storage[".$cur->object_id."][period]",$cur->storagePeriod,null,
+										array(
+											1 => $this->Translate("a day"), 
+											2 => $this->Translate("a month"), 
+											3 => $this->Translate("a year") 
+										)
+									)?>
+								</td>
+							</tr>
+							<?php endforeach;?>
+						</table>
+						<?= $this->formSubmit('Submit',$this->translate('Save'), array("class" => "submit") ) ?>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+<script>
+$(document).ready(function(){
+	$(".goodtable input[id^='co']").keyup( function () {
+	    var block = $(this).parents('tbody');
+	    var cource = $(block).find("input[id^='course']").val();
+	    $(this).parent().parent().parent().find("input[id^='commission']").each( function() {
+		    var commission = $(this).val().replace(",",".");
+		    var fromBase = 1;
+		    var toCur = cource*(1-commission/100);
+		    var fromCur = cource/1;
+		    var toBase = (1-commission/100);
+			$(this).parent().parent().find("#fromBase").val( fromBase );
+			$(this).parent().parent().find("#toCur").val( toCur );
+			$(this).parent().parent().find("#fromCur").val( fromCur );
+			$(this).parent().parent().find("#toBase").val( toBase );
+	    });
+	}).keyup();
+
+	$("#fromBase,#toCur,#fromCur,#toBase").keyup( function () {
+	    var cource = $(this).parents('tbody').find("input[id^='course']").val();
+//	    alert(cource);
+	    var commission = $(this).parent().parent().find("input[id^='commission']");
+	    var string = $(this).parent().parent().find("input");
+	    var val1 = $(string).eq( string.length-2 ).val().replace(",",".");
+//	    alert( string.length );
+	    var val2 = $(string).eq( string.length-1 ).val().replace(",",".");
+	    if ( $(this).parent().find("#fromBase").val()>0 ) {
+	    	var c = (1 - val2/(val1*cource))*100;
+	    } else {
+	    	var c = (1 - val2*cource/val1)*100;
+	    }
+	    $(commission).val( c );
+	});
+
+	$("#transfer input[id^='co']").keyup( function() {
+	    var commission = $(this).val();
+		$(this).parent().parent().find(".trres").val( 1-commission/100 );
+	}).keyup();
+});
+</script>

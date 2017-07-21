@@ -1,0 +1,28 @@
+<header class="widget-header">
+	<h1 class="widget-title">
+		<?= $this->Translate("The total balance sheet of means of system") ?>
+	</h1>
+</header>
+<hr class="widget-separator">
+
+<div class="clear"></div> 
+
+<?php if ( count($this->ao)>0 ) : ?>
+
+	<table cellpadding="0" cellspacing="0" border="0" class="goodtable">
+	<tr>
+		<th><?= $this->Translate("currency") ?></th>
+		<th><?= $this->Translate("balance") ?></th>
+	
+	</tr>
+   <?php foreach ($this->ao as $bo) : ?>
+   <?php $class= ($i++ % 2) ? "row_even" : "row_odd"; ?>
+	<tr class="<?= $class ?>">
+		<td><?= $bo->getObjectAbbr() ?></td>
+		<td class="r"><?= number_format($bo->sum,2) ?></td>
+	</tr>
+   <?php endforeach; ?>
+	</table>
+	<div class="h30"></div>
+    <div class="clear"></div>
+<?php endif; ?>   

@@ -1,0 +1,315 @@
+<div id="app">
+	<!-- sidebar -->
+	<div class="sidebar app-aside" id="sidebar">
+		<div class="sidebar-container perfect-scrollbar">
+			<div>
+				<!-- start: SEARCH FORM -->
+				<div class="search-form hidden-md hidden-lg">
+					<a class="s-open" href="#"> <i class="ti-search"></i> </a>
+					<form class="navbar-form" role="search">
+						<a class="s-remove" href="#" target=".navbar-form"> <i class="ti-close"></i> </a>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<button class="btn search-button" type="submit">
+								<i class="ti-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<!-- end: SEARCH FORM -->
+				<!-- start: USER OPTIONS -->
+				<div class="nav-user-wrapper">
+					<div class="media">
+						<div class="media-left">
+							<a class="profile-card-photo" href="#"><img alt="" src="/cp/public/assets/images/avatar-1.jpg"></a>
+						</div>
+						<div class="media-body">
+							<span class="media-heading text-white"> ID: <?=$_SESSION['zh_user_id']; ?> </span>
+							<div class="text-small text-white-transparent">
+								Тип аккаунта
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: USER OPTIONS -->
+				<nav>
+					<!-- start: MAIN NAVIGATION MENU -->
+					<div class="navbar-title">
+						<span>Главное меню</span>
+					</div>
+					<ul class="main-navigation-menu">
+						<li>
+							<a href="/cp/account" class="profile-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="item-inner">
+										<span class="title"> Профиль </span>
+									</div>
+								</div> 
+							</a>
+						</li>
+						<?php echo $this->navigation()->menu()->setPartial("topMenu.phtml")->renderPartial(); ?>
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- / sidebar -->
+	<div class="app-content">
+		<!-- start: TOP NAVBAR -->
+		<header class="navbar navbar-default navbar-static-top">
+			<!-- start: NAVBAR HEADER -->
+			<div class="navbar-header">
+				<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/cp/account"> <img src="/cp/public/assets/images/logo.png" alt="Packet"/> </a>
+				<a class="navbar-brand navbar-brand-collapsed" href="/cp/account"> <img src="/cp/public/assets/images/logo-collapsed.png" alt="" /> </a>
+
+				<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+					<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i><small><i class="fa fa-caret-down margin-left-5"></i></small>
+				</button>
+			</div>
+			<!-- end: NAVBAR HEADER -->
+			<!-- start: NAVBAR COLLAPSE -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-left hidden-sm hidden-xs">
+					<li class="sidebar-toggler-wrapper">
+						<div>
+							<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
+					</li>		
+				</ul>
+				<ul class="nav navbar-right">
+					<!-- start: LANGUAGE SWITCHER -->
+					<li class="dropdown">
+						<a href class="dropdown-toggle" data-toggle="dropdown"> Язык </a>
+						<ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+							<li>
+								<a href="<?= $this->url( array('lang'=>'en') ) ?>" class="menu-toggler"> English </a>
+							</li>
+							<li>
+								<a href="<?= $this->url( array('lang'=>'ru') ) ?>" class="menu-toggler"> Русский </a>
+							</li>
+						</ul>
+					</li>
+					<!-- end: LANGUAGE SWITCHER -->
+							
+					<li><a href="/cp/account/logout"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;</a></li>
+							
+				</ul>
+				<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+				<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+			</div>
+					
+			<!-- end: NAVBAR COLLAPSE -->
+		</header>
+		<!-- end: TOP NAVBAR -->
+		
+		<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Verification requests") ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<h5 class="over-title margin-bottom-15">Заявки на <span class="text-bold">верификацию</span></h5>
+									<table class="table table-striped table-hover" id="verification-requests">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th class="hidden-xs">Дата подачи заявки</th>
+												<th class="hidden-xs">ФИО</th>
+												<th class="hidden-xs">Страна</th>
+												<th class="hidden-xs">Город</th>
+												<th class="hidden-xs">Дата рождения</th>
+												<th class="hidden-xs">Номер документа</th>
+												<th class="hidden-xs">Дата выдачи документа</th>
+												<th class="hidden-xs">Кем выдан документ</th>
+												<th>Действия</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php for ($i = 0, $amountOfRequests = count($this->notVerificated); $i < $amountOfRequests; $i++) { ?>
+											<form action="" method="get">
+												<tr>
+													<td class="hidden-xs">
+														<?php echo $this->notVerificated[$i]['user_id']; ?>
+														<input type="hidden" name="user_id" value="<?php echo $this->notVerificated[$i]['user_id']; ?>">
+													</td>
+													<td class="hidden-xs"><?php echo $this->notVerificated[$i]['date']; ?></td>
+													<td>
+														<?php echo htmlspecialchars($this->notVerificated[$i]['lastname']); ?> <?php echo htmlspecialchars($this->notVerificated[$i]['firstname']); ?> <?php echo htmlspecialchars($this->notVerificated[$i]['middlename']); ?>
+														<input type="hidden" name="firstname" value="<?php echo htmlspecialchars($this->notVerificated[$i]['firstname']); ?>">
+														<input type="hidden" name="lastname" value="<?php echo htmlspecialchars($this->notVerificated[$i]['lastname']); ?>">
+														<input type="hidden" name="middlename" value="<?php echo htmlspecialchars($this->notVerificated[$i]['middlename']); ?>">
+													</td>
+													<td class="hidden-xs">
+														<?php echo htmlspecialchars($this->notVerificated[$i]['country']); ?>
+														<input type="hidden" name="country" value="<?php echo htmlspecialchars($this->notVerificated[$i]['country']); ?>">
+													</td>
+													<td class="hidden-xs">
+														<?php echo htmlspecialchars($this->notVerificated[$i]['city']); ?>
+														<input type="hidden" name="city" value="<?php echo htmlspecialchars($this->notVerificated[$i]['city']); ?>">
+													</td>
+													<td class="hidden-xs">
+														<?php echo $this->notVerificated[$i]['birthdate']; ?>
+														<input type="hidden" name="birthdate" value="<?php echo $this->notVerificated[$i]['birthdate']; ?>">
+													</td>
+													<td class="hidden-xs">
+														<?php echo htmlspecialchars($this->notVerificated[$i]['docnum']); ?>
+														<input type="hidden" name="docnum" value="<?php echo htmlspecialchars($this->notVerificated[$i]['docnum']); ?>">
+													</td>
+													<td class="hidden-xs">
+														<?php echo $this->notVerificated[$i]['docdate']; ?>
+														<input type="hidden" name="docdate" value="<?php echo $this->notVerificated[$i]['docdate']; ?>">
+													</td>
+													<td class="hidden-xs">
+														<?php echo htmlspecialchars($this->notVerificated[$i]['docwho']); ?>
+														<input type="hidden" name="docwho" value="<?php echo $this->notVerificated[$i]['docwho']; ?>">
+													</td>
+													<td class="center">
+														<div class="visible-md visible-lg hidden-sm hidden-xs">
+															<input type="hidden" name="verificate" value="true">
+															<input type="submit" class="btn btn-primary" value="Одобрить">
+														</div>
+													</td>
+												</tr>
+											</form>
+										<?php } ?>
+										</tbody>
+									</table>
+									<?php for ($i = 0, $amountOfRequests = count($this->notVerificated); $i < $amountOfRequests; $i++) { ?>
+										<div class="panel panel-white collapses">
+											<div class="panel-heading">
+												<h4 class="panel-title text-primary">Фото документов <?php echo $this->notVerificated[$i]['user_id']; ?></h4>
+												<div class="panel-tools" >
+													<a data-original-title="Collapse" data-toggle="tooltip" data-placement="top" class="btn btn-transparent btn-sm panel-collapse" href="#"><i class="ti-minus collapse-off"></i><i class="ti-plus collapse-on"></i></a>
+												</div>
+											</div>
+											<div class="panel-body">
+												<span style="margin: 0px 15px;"><img src="<?php echo $this->notVerificated[$i]['docimg1']; ?>" alt=""></span>
+												<span style="margin: 0px 15px;"><img src="<?php echo $this->notVerificated[$i]['docimg2']; ?>" alt=""></span>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<h5 class="over-title margin-bottom-15">Одобренные <span class="text-bold">заявки</span></h5>
+									<table class="table table-striped table-hover" id="verification-requests">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th class="hidden-xs">Дата подачи заявки</th>
+												<th class="hidden-xs">ФИО</th>
+												<th class="hidden-xs">Страна</th>
+												<th class="hidden-xs">Город</th>
+												<th class="hidden-xs">Дата рождения</th>
+												<th class="hidden-xs">Номер документа</th>
+												<th class="hidden-xs">Дата выдачи документа</th>
+												<th class="hidden-xs">Кем выдан документ</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php for ($i = 0, $amountOfVerificated = count($this->Verificated); $i < $amountOfVerificated; $i++) { ?>
+											<tr>
+												<td class="hidden-xs">
+													<?php echo $this->Verificated[$i]['user_id']; ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo $this->Verificated[$i]['date']; ?>
+												</td>
+												<td>
+													<?php echo htmlspecialchars($this->Verificated[$i]['lastname']); ?> <?php echo htmlspecialchars($this->Verificated[$i]['firstname']); ?> <?php echo htmlspecialchars($this->Verificated[$i]['middlename']); ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo htmlspecialchars($this->Verificated[$i]['country']); ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo htmlspecialchars($this->Verificated[$i]['city']); ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo $this->Verificated[$i]['birthdate']; ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo htmlspecialchars($this->Verificated[$i]['docnum']); ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo $this->Verificated[$i]['docdate']; ?>
+												</td>
+												<td class="hidden-xs">
+													<?php echo htmlspecialchars($this->Verificated[$i]['docwho']); ?>
+												</td>
+											</tr>
+										<?php } ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	
+<!-- start: FOOTER -->
+	<footer>
+		<div class="footer-inner">
+			<div class="pull-left">
+				&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> Simple Money</span>. <span>All rights reserved</span>
+			</div>
+			<div class="pull-right">
+				<span class="go-top"><i class="ti-angle-up"></i></span>
+			</div>
+		</div>
+	</footer>
+	<!-- end: FOOTER -->
+</div>
+
+<script type="text/javascript">
+( function($){
+	$(document).ready(function () {
+		$('#objectFrom,#objectTo').change( function() {
+			var obj1=$('#objectFrom').val(); 
+			var obj2=$('#objectTo').val();
+			var commission=comm[obj1+'-'+obj2] ? comm[obj1+'-'+obj2] : 0;
+			var course = cours[obj2]/cours[obj1];
+			var val=$('#amount').val().replace(/,/,'.');
+			$('#summa').val( val*course*(1-commission/100) ); 
+		}).change();	
+
+		$('#amount').keyup( function() {
+			$('#objectFrom').change();
+		});
+			
+	});	
+})(jQuery);
+</script>

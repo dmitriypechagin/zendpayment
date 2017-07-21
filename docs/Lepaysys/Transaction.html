@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Transaction</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Transaction</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Model Transaction</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Lepaysys</li>
+				<li><span class="field">version:</span> 1.0</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Transaction.php.html">/Transaction.php</a> (line <span class="field"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a10">10</a></span>)
+		</p>
+		
+				
+		<pre>Zend_Db_Table_Abstract
+   |
+   --Transaction</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#CON_UNAVAILBLE" title="details" class="const-name">CON_UNAVAILBLE</a> = 					<span class="var-type"> &quot;Such conversion is unavailable&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#MIN_AMOUNT" title="details" class="const-name">MIN_AMOUNT</a> = 					<span class="var-type"> &quot;It is not enough amount for a withdrawal&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#NOT_WITHDARWAL" title="details" class="const-name">NOT_WITHDARWAL</a> = 					<span class="var-type"> &quot;Not well for a withdrawal&quot;</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../media/images/Constant.png" alt=" " />
+					<a href="#YUOR_PURSE" title="details" class="const-name">YUOR_PURSE</a> = 					<span class="var-type"> &quot;You indicated your purse as a destination&quot;</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$issueOperation" title="details" class="var-name">$issueOperation</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$status" title="details" class="var-name">$status</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$type" title="details" class="var-name">$type</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$_referenceMap" title="details" class="var-name">$_referenceMap</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_rowClass" title="details" class="var-name">$_rowClass</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#cancel" title="details" class="method-name">cancel</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#conversion" title="details" class="method-name">conversion</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$mode</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#create" title="details" class="method-name">create</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#issue" title="details" class="method-name">issue</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#repayment" title="details" class="method-name">repayment</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#storage" title="details" class="method-name">storage</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#transfer" title="details" class="method-name">transfer</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array|string</span>
+										<a href="#typeById" title="details" class="method-name">typeById</a>
+											([<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#withdrawal" title="details" class="method-name">withdrawal</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_setupTableName" title="details" class="method-name">_setupTableName</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$issueOperation" id="$issueOperation"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$issueOperation</span>
+			 = <span class="var-default">array( <br />		'1'=&gt;'creation of means', <br />		'2'=&gt;'removal of means' <br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a95">95</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Type of creation or removal of means in system</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$status" id="$status"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$status</span>
+			 = <span class="var-default">array( <br />		'in handling'=&gt;0, <br />		'executed' =&gt; 1, <br />		'cancel' =&gt; 2 <br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a85">85</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The status of the request for withdrawal</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$type" id="$type"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$type</span>
+			 = <span class="var-default">array( <br />		''=&gt;0, <br />		'issue' =&gt; 1, <br />		'repayment' =&gt; 2, <br />		'transfer' =&gt; 3, <br />		'commission' =&gt;4, <br />		'withdrawal' =&gt; 5, <br />		'conversion' =&gt; 6, <br />		'storage' =&gt; 7 <br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a70">70</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Type of operation</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_referenceMap" id="$_referenceMap"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$_referenceMap</span>
+			 = <span class="var-default">array(<br />        'user' =&gt; array(<br />            'columns'         =&gt; array('user_id'),'refTableClass'=&gt;'User','refColumns'=&gt;array('user_id')),'touser'=&gt;array('columns'=&gt;array('to_user_id'),'refTableClass'=&gt;'User','refColumns'=&gt;array('user_id')),'object'=&gt;array('columns'=&gt;array('object_id'),'refTableClass'=&gt;'Object','refColumns'=&gt;array('object_id')),'sell_object'=&gt;array('columns'=&gt;array('sell_object_id'),'refTableClass'=&gt;'Object','refColumns'=&gt;array('object_id')),'sell_owner'=&gt;array('columns'=&gt;array('sell_owner_id'),'refTableClass'=&gt;'User','refColumns'=&gt;array('user_id')),'buy_object'=&gt;array('columns'=&gt;array('buy_object_id'),'refTableClass'=&gt;'Object','refColumns'=&gt;array('object_id')),'buy_owner'=&gt;array('columns'=&gt;array('buy_owner_id'),'refTableClass'=&gt;'User','refColumns'=&gt;array('user_id')))</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a28">28</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> Zend_Db_Table_Abstract</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_rowClass" id="$_rowClass"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_rowClass</span>
+			 = <span class="var-default"> 'TransactionRow'</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a22">22</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> Zend_Db_Table_Abstract</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodcancel" id="cancel"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">cancel</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a153">153</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Transaction canceling</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			cancel
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: transaction</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodconversion" id="conversion"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">conversion</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a247">247</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Conversion of means</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			conversion
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>, <span class="var-type">boolean</span>&nbsp;<span class="var-name">$mode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: - see function create</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$mode</span><span class="var-description">: : 1 -  without the commission, 0 - with the commission</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreate" id="create"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">create</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a137">137</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creation of new transaction</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			create
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: int $data['user_id'] Sender user id              int $data['to_user_id'] Receiver user id              int $data['object_id'] Object id              int $data['amount'] Ammount transaction              int $data['type'] Type of transaction (see array $type)              int $data['description'] Description transaction</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodissue" id="issue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">issue</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a173">173</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creation of means</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			issue
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: - see function create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrepayment" id="repayment"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">repayment</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a184">184</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletion of means</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			repayment
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: - see function create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstorage" id="storage"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">storage</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a298">298</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The commission for storage</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			storage
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: - see function create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtransfer" id="transfer"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">transfer</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a197">197</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Transfer of means</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			transfer
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: - see function create             int $data['mode'] : 1 -  without the commission, 0 - with the commission             int $data['commission']  Commission procentre</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtypeById" id="typeById"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">typeById</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a116">116</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">if set parameter Id returned string type operation, else returned array $type</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../Lepaysys/Transaction.html#var$type">Transaction::$type</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array|string</span>
+		<span class="method-name">
+			typeById
+		</span>
+					([<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwithdrawal" id="withdrawal"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">withdrawal</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a229">229</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Withdrawal of means</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			withdrawal
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: - see function create</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_setupTableName" id="_setupTableName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_setupTableName</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a104">104</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> Zend_Db_Table_Abstract</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_setupTableName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constCON_UNAVAILBLE" id="CON_UNAVAILBLE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CON_UNAVAILBLE</span>
+			 = <span class="const-default"> &quot;Such conversion is unavailable&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a16">16</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constMIN_AMOUNT" id="MIN_AMOUNT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">MIN_AMOUNT</span>
+			 = <span class="const-default"> &quot;It is not enough amount for a withdrawal&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a15">15</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constNOT_WITHDARWAL" id="NOT_WITHDARWAL"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NOT_WITHDARWAL</span>
+			 = <span class="const-default"> &quot;Not well for a withdrawal&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a14">14</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constYUOR_PURSE" id="YUOR_PURSE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">YUOR_PURSE</span>
+			 = <span class="const-default"> &quot;You indicated your purse as a destination&quot;</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Transaction.php.html#a13">13</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 24 Jan 2012 22:12:01 +0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>

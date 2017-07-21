@@ -1,0 +1,10 @@
+
+
+AddDefaultCharset UTF-8
+DirectoryIndex index.php
+#php_value error_reporting "E_ALL&~E_NOTICE&~E_USER_NOTICE"
+#php_value error_reporting 0
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} (css|js|jpg|png)$
+RewriteRule ^(.*)$ public/$1 [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

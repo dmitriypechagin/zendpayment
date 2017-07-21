@@ -1,0 +1,31 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Transfer of means") ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<?= $this->message() ?>
+									
+									<a href="<?= $this->url(array( 'action'=>'history' , 'filed' => 'date', 'order_t' =>'DESC' )) ?>"><?= $this->Translate("History of operations") ?></a><br />
+									<a href=""><?= $this->Translate("To perform still operation") ?></a><br />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

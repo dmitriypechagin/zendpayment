@@ -1,0 +1,197 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin">Пополнение кошельков</h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													Способ пополнения
+												</legend>
+												<div class="row margin-bottom-50">
+													<div class="col-md-4">
+														<a href="/cp/account/fill/?advcash=new"><img src="/cp/public/assets/images/values/advcash.png" class="img-responsive" alt="AdvCash"></a>
+													</div>
+													<div class="col-md-4">
+														<a href="#"><img src="/cp/public/assets/images/values/payeer.png" class="img-responsive" alt="Payeer"></a>
+													</div>
+													<div class="col-md-4">
+														<a href="/cp/account/fill/?perfectmoney=new"><img src="/cp/public/assets/images/values/perfectmoney.png" class="img-responsive" alt="Perfect Money"></a>
+													</div>
+												</div>
+												<div class="row margin-bottom-20">
+													<div class="col-md-4">
+														<a href="#" data-toggle="modal" data-target="#okpay-form"><img src="/cp/public/assets/images/values/okpay.png" class="img-responsive" alt="OKPAY"></a>
+													</div>
+													<div class="col-md-4">
+													
+													</div>
+													<div class="col-md-4">
+													
+													</div>
+												</div>
+											</fieldset>
+										</div>
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													Информация
+												</legend>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="checkbox-inline clip-check">
+																<input type="checkbox" name="newsletter">
+																<i></i> 
+																На данной странице Вы можете пополнить баланс внутренней валюты Simple Money.<br/> Для этого выберите валюту для пополнения, из доступных, заполните поля формы и нажмите на кнопку «Оплатить». 
+																<br/>
+																<br/>
+															</label>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--AdvCash Form-->
+<div class="modal fade in" id="advcash-form" tabindex="-1" role="dialog" aria-labelledby="AdvCashLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="post" action="https://wallet.advcash.com/sci/">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title" id="AdvCashLabel">Пополнение с AdvCash</h4>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="ac_account_email" value="stonealex41@gmail.com">
+					<input type="hidden" name="ac_sci_name" value="Simple Money">
+					<input type="hidden" name="ac_sign" value="72f6f0cae4ada4ed04b26ec8df7cba92d3a97df7f396b5ebf154dfc592c6a56e">
+					<input type="hidden" name="ac_order_id" value="<?= $this->fill_id ?>">
+					<div class="form-group">
+						<label for="ac_amount">Введите сумму пополнения:</label>
+						<input type="text" class="form-control" name="ac_amount" id="ac_amount" placeholder="1.00">
+					</div>
+					<div class="form-group">
+						<label for="ac_currency">Выберите валюту:</label>
+						<select class="form-control" name="ac_currency" id="ac_currency">
+							<option value="RUR">RUR</option>
+							<option value="EUR">EUR</option>
+							<option value="USD">USD</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" value="Оплатить">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--Payeer Form-->
+<div class="modal fade in" id="payeer-form" tabindex="-1" role="dialog" aria-labelledby="AdvCashLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="AdvCashLabel">Пополнение с Payeer</h4>
+			</div>
+			<div class="modal-body">
+				Modal Content
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary">
+					Save changes
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Perfect Money Form-->
+<div class="modal fade in" id="perfectmoney-form" tabindex="-1" role="dialog" aria-labelledby="AdvCashLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="https://perfectmoney.is/api/step1.asp" method="POST">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title" id="AdvCashLabel">Пополнение с Perfect Money</h4>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="PAYEE_ACCOUNT" value="U12162300">
+					<input type="hidden" name="PAYEE_NAME" value="Simple Money">
+					<input type="hidden" name="PAYMENT_ID" value="<?= $this->fill_id ?>">
+					<input type="hidden" name="PAYMENT_UNITS" value="USD">
+					<input type="hidden" name="STATUS_URL" value="">
+					<input type="hidden" name="PAYMENT_URL" value="http://v-salikov.ru/cp/account/fill/">
+					<input type="hidden" name="PAYMENT_URL_METHOD" value="GET">
+					<input type="hidden" name="NOPAYMENT_URL" value="http://v-salikov.ru/cp/account/fill/">
+					<input type="hidden" name="NOPAYMENT_URL_METHOD" value="GET">
+					<input type="hidden" name="BAGGAGE_FIELDS" value="">
+					<div class="form-group">
+						<label for="PAYMENT_AMOUNT">Введите сумму пополнения:</label>
+						<input type="text" class="form-control" name="PAYMENT_AMOUNT" id="PAYMENT_AMOUNT" placeholder="1.00">
+					</div>
+					<div class="form-group">
+						<label for="SUGGESTED_MEMO">Примечание к платежу:</label>
+						<input type="text" class="form-control" name="SUGGESTED_MEMO" id="SUGGESTED_MEMO" placeholder="Примечание">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="submit" name="PAYMENT_METHOD" class="btn btn-primary" value="Оплатить">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!--OKPAY Form-->
+<div class="modal fade in" id="okpay-form" tabindex="-1" role="dialog" aria-labelledby="AdvCashLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="AdvCashLabel">Пополнение с OKPAY</h4>
+			</div>
+			<div class="modal-body">
+				Modal Content
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary">
+					Save changes
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

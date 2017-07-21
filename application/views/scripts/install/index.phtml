@@ -1,0 +1,11 @@
+        <?= $this->translate('Start')?>
+<form action="<?= $this->url(array('action'=>'step1')) ?>" method="POST">
+        <?= $this->translate('Select Language')?>
+<br>
+<select name="lang">
+	<option value="ru">Русский</option>
+	<option value="en">English</option>
+</select>
+<br>
+<input type="submit" value="Начать">
+</form>

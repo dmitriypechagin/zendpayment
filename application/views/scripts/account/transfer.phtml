@@ -1,0 +1,334 @@
+<div id="app">
+	<!-- sidebar -->
+	<div class="sidebar app-aside" id="sidebar">
+		<div class="sidebar-container perfect-scrollbar">
+			<div>
+				<!-- start: SEARCH FORM -->
+				<div class="search-form hidden-md hidden-lg">
+					<a class="s-open" href="#"> <i class="ti-search"></i> </a>
+					<form class="navbar-form" role="search">
+						<a class="s-remove" href="#" target=".navbar-form"> <i class="ti-close"></i> </a>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<button class="btn search-button" type="submit">
+								<i class="ti-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<!-- end: SEARCH FORM -->
+				<!-- start: USER OPTIONS -->
+				<div class="nav-user-wrapper">
+					<div class="media">
+						<div class="media-body">
+							<span class="media-heading text-white"> ID: <?=$_SESSION['zh_user_id']; ?> </span>
+							<div class="text-small text-white-transparent">
+								<?php 
+									if ( $this->account_type == 0 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Standart</span>';
+									}
+									else if ( $this->account_type == 1 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Premium</span>';
+									}
+									else if ( $this->account_type == 2 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Business</span>';
+									}
+									else if ( $this->account_type == 3 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">VIP</span>';
+									}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: USER OPTIONS -->
+				<nav>
+					<!-- start: MAIN NAVIGATION MENU -->
+					<div class="navbar-title">
+						<span>Главное меню</span>
+					</div>
+					<ul class="main-navigation-menu">
+						<li>
+							<a href="/cp/account" class="profile-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="item-inner">
+										<span class="title"> Профиль </span>
+									</div>
+								</div> 
+							</a>
+						</li>
+						<?php echo $this->navigation()->menu()->setPartial("topMenu.phtml")->renderPartial(); ?>
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- / sidebar -->
+	<div class="app-content">
+		<!-- start: TOP NAVBAR -->
+		<header class="navbar navbar-default navbar-static-top">
+			<!-- start: NAVBAR HEADER -->
+			<div class="navbar-header">
+				<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/cp/account"> <img src="/cp/public/assets/images/logo.png" alt="Packet"/> </a>
+				<a class="navbar-brand navbar-brand-collapsed" href="/cp/account"> <img src="/cp/public/assets/images/logo-collapsed.png" alt="" /> </a>
+
+				<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+					<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i><small><i class="fa fa-caret-down margin-left-5"></i></small>
+				</button>
+			</div>
+			<!-- end: NAVBAR HEADER -->
+			<!-- start: NAVBAR COLLAPSE -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-left hidden-sm hidden-xs">
+					<li class="sidebar-toggler-wrapper">
+						<div>
+							<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
+					</li>		
+				</ul>
+				<ul class="nav navbar-right">
+					<!-- start: LANGUAGE SWITCHER -->
+					<li class="dropdown">
+						<a href class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-flag-o" style="vertical-align: middle; padding: 0px 5px;" aria-hidden="true"></i> </a>
+						<ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+							<li>
+								<a href="<?= $this->url( array('lang'=>'en') ) ?>" class="menu-toggler"> English </a>
+							</li>
+							<li>
+								<a href="<?= $this->url( array('lang'=>'ru') ) ?>" class="menu-toggler"> Русский </a>
+							</li>
+						</ul>
+					</li>
+					<!-- end: LANGUAGE SWITCHER -->
+							
+					<li><a href="/cp/account/logout"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;</a></li>
+							
+				</ul>
+				<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+				<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+			</div>
+					
+			<!-- end: NAVBAR COLLAPSE -->
+		</header>
+		<!-- end: TOP NAVBAR -->
+		
+		<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Transfer of means") ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<fieldset>
+										<legend>
+											Перевод клиенту Simple Money
+										</legend>
+										<?= $this->fTransfer ?>
+												
+										<?= $this->message() ?>
+												
+										<?php if ( $this->Commissions ) :?>
+											<script type="text/javascript">
+												var comm=<?php echo $this->Commissions; ?>;
+											</script>
+										<?php endif; ?>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<fieldset>
+										<legend>
+											Информация
+										</legend>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<label class="checkbox-inline clip-check">
+														<input type="checkbox" name="newsletter">
+														<i></i> 
+														На данной странице Вы можете перевести деньги любому лицу или компании, которые зарегистрированы в Simple Money.<br/> Для этого заполните поля формы и нажмите на кнопку «Перевести». 
+														<br/>
+														<br/>
+														<span style="color: red;">*</span> - Поля, обязательные для заполнения, отмечены. 
+													</label>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	
+<!-- start: FOOTER -->
+	<footer>
+		<div class="footer-inner">
+			<div class="pull-left">
+				&copy; 2015-<span class="current-year"></span><span class="text-bold text-uppercase"> Simple Money</span>. <span>All rights reserved</span>
+			</div>
+			<div class="pull-right">
+				<span class="go-top"><i class="ti-angle-up"></i></span>
+			</div>
+		</div>
+	</footer>
+	<!-- end: FOOTER -->
+</div>
+
+<!--Confirm Form-->
+<div class="modal fade in" id="confirm-form" tabindex="-1" role="dialog" aria-labelledby="AdvCashLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="post" action="">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title" id="AdvCashLabel">Подтверждение платежа</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-block alert-<?= $this->alertClass ?> fade in">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+						<h4 class="alert-heading margin-bottom-10"><?= $this->alertHeading ?></h4>
+						<p class="margin-bottom-10">
+							<?= $this->alertMessage ?>
+						</p>
+					</div>
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="center">С кошелька</th>
+								<th class="center">Пользователю</th>
+								<th class="center">Сумма</th>
+								<th class="center">Примечание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="center"><?= $this->values['abbr'] ?><?= $this->user_id ?></td>
+								<td class="center"><?= $this->values['purse'] ?></td>
+								<td class="center"><?= $this->values['amount'] ?> <?= $this->values['abbr'] ?></td>
+								<td class="center"><?= $this->values['note'] ?></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="form-group">
+						<label for="confirmCode">Введите код подтвеждения:</label>
+						<input type="text" class="form-control" name="confirmCode" id="confirmCode" placeholder="57c87591872a6">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-primary" name="Confirm" id="Confirm" value="Перевести">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<?php
+	echo '<script type="text/javascript">
+	';
+	foreach ($this->balance as $cur) {
+		$vname = $cur->purseName();
+		$vbalance = $cur->getBalance();
+		echo ' var v'.$vname.' = "'.$vbalance.'";
+		';
+	}
+	echo '</script>
+	';
+?>
+
+<script>
+	$(document).ready(function() {
+
+		$('.formwrapper form').submit(function(){
+			var sel = document.getElementById("abbr"); // Получаем наш список
+			var txt = sel.options[sel.selectedIndex].text;
+			var ubalance = window["v"+txt];
+
+			var ubalance = parseInt(ubalance.replace(",","."));
+
+			var uamount=parseInt($('#amount').val().replace(/,/,'.'));
+			if(isNaN(uamount)) uamount = '0'; 
+			
+			if(uamount == '0') {
+				alert('Введите сумму!');
+				return false;
+			} 
+
+			if(uamount>ubalance) {
+				alert('Недостаточно средств!');
+				return false;
+			} 
+
+
+
+		});
+
+		var purseLabel = $('#purse-label').html();
+		var amountLabel = $('#amount-label').html();
+		$('#purse-label').html(purseLabel + '<span style="color: red;">*</span>');
+		$('#amount-label').html(amountLabel + '<span style="color: red;">*</span>');
+	});
+</script>
+
+<script type="text/javascript">
+( function($){
+	$(document).ready(function () {
+		$('#amount,#commission').keyup( function() {
+			var val=$('#amount').val().replace(/,/,'.');
+			var comm=$('#commission').val().replace(/,/,'.');
+
+			var nsumma = parseInt(val)+(parseInt(val)/100*comm);
+			if(isNaN(nsumma)) nsumma = '0';
+			$('#summa').val( nsumma ); 
+		//	alert(val);
+		});	
+
+		$('#purse').keyup( function() {
+			var val=$(this).val();
+			var abbr=val.substr(0,<?= Zend_Registry::get('purse')->abbrLength ?>);
+			$('#commission').val( comm );
+			$('#commission-label label').html( 'Коммиссия: ' + comm + '%' );
+			$('#amount').keyup(); 
+		}).keyup();
+			
+		$('#purse,#amount,#commission').change( function() { $(this).keyup(); });
+	});	
+})(jQuery);
+</script>
+
+

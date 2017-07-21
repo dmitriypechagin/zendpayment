@@ -1,0 +1,35 @@
+<?php if ($this->pageCount>1): ?>
+<!-- <div class="paginationControl">  -->
+<table  cellpadding="0" cellspacing="0" border="0" align="center"><tr>	<td><div class="pages01"><div class="pages02">
+
+<!-- Ссылка на предыдущую страницу -->
+<?php if (isset($this->previous)): ?>
+  <a href="<?php echo $this->url(array('page' => $this->previous)); ?>" class="left">
+    &larr;
+  </a> 
+<?php else: ?>
+<!--   <span class="disabled"> &larr; </span>  --> 
+<?php endif; ?>
+ 
+<!-- Нумерованные ссылки на страницы -->
+<?php foreach ($this->pagesInRange as $page): ?>
+  <?php if ($page != $this->current): ?>
+    <a href="<?php echo $this->url(array('page' => $page)); ?>"><?php echo $page; ?></a> 
+  <?php else: ?>
+    <strong><?php echo $page; ?> </strong>
+  <?php endif; ?>
+<?php endforeach; ?>
+ 
+<!-- Ссылка на следующую страницу -->
+<?php if (isset($this->next)): ?>
+  <a href="<?php echo $this->url(array('page' => $this->next)); ?>" class="right">
+    &rarr;
+  </a>
+<?php else: ?>
+<!--   <span class="disabled"> &rarr; </span>  -->
+<?php endif; ?>
+	</div></div></td></tr></table>
+
+<!-- </div> -->
+
+<?php endif; ?>

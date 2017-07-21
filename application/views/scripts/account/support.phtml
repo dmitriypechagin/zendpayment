@@ -1,0 +1,114 @@
+<!-- APP MAIN ==========-->
+<main id="app-main" class="app-main">
+	<div class="wrap">
+		<section class="app-content">
+
+			<div class="row all-tickets">
+				<div class="col-md-10">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mail-toolbar m-b-lg">								
+								<a href="#" class="btn btn-default" id="ticket-form" onclick="ticketForm();">Создать новый тикет</a>
+							</div>
+						</div>
+					</div>
+					
+					<div class="table-responsive">
+					<table class="table mail-list">
+						<tr>
+							<td>
+							<?php
+								if ( $this->ticket_err ) {
+									echo 'Тикитов ещё нет';
+								}
+								else { 
+							?>
+							<?php	for ($i = 0, $amountOfTickets = count($this->allTickets); $i < $amountOfTickets; $i++) { ?>
+										<!-- a single mail -->
+										<div class="mail-item">
+											<table class="mail-container">
+												<tr>
+													<td class="mail-left">
+														<div class="avatar avatar-lg avatar-circle">
+															<a href="#"><img src="../assets/images/208.jpg" alt="sender photo"></a>
+														</div>
+													</td>
+													<td class="mail-center">
+														<div class="mail-item-header">
+															<h4 class="mail-item-title"><a href="tiket-view.php" class="title-color"><?php echo htmlspecialchars($this->allTickets[$i]['subject']); ?></a></h4>
+															<a href="#"><span class="label label-success">Новое сообщение</span></a>
+															<?php if($this->allTickets[$i]['status'] == 0) {
+																echo '<a href="#"><span class="label label-primary">(открыт)</span></a>';
+															}
+															else {
+																echo '<a href="#"><span class="label label-warning">закрыт</span></a>';
+															} ?>
+														</div>
+														<p class="mail-item-excerpt"><?php echo  htmlspecialchars($this->allTickets[$i]['message']); ?></p>
+													</td>
+													<td class="mail-right">
+														<p class="mail-item-date">2 часа назад</p>
+														<p class="mail-item-star starred">
+															<a href="#"><i class="zmdi zmdi-star"></i></a>
+														</p>
+													</td>
+												</tr>
+											</table>
+										</div><!-- END mail-item -->
+							<?php	}
+								}
+							?>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+			</div><!-- .row -->
+			<div class="row ticket-form" style="display: none;">
+				<div class="col-md-2">
+					<div class="app-action-panel" id="compose-action-panel">
+						<div class="action-panel-toggle" data-toggle="class" data-target="#compose-action-panel" data-class="open">
+							<i class="fa fa-chevron-right"></i>
+							<i class="fa fa-chevron-left"></i>
+						</div><!-- .app-action-panel -->
+
+						<div class="m-b-lg">
+							<a href="#" type="button" class="btn action-panel-btn btn-default btn-block" onclick="ticketAll();">Назад в тикеты</a>
+						</div>
+
+					</div><!-- .app-action-panel -->
+				</div><!-- END column -->
+				
+				<div class="col-md-10">
+					<div class="panel panel-default new-message">						
+						<?= $this->ticketForm ?>
+					</div><!-- .panel -->
+				</div><!-- END column -->	
+			</div>
+						
+			<!-- APP FOOTER -->
+			<div class="wrap p-t-0">
+				<footer class="app-footer">
+					<div class="clearfix">
+						<div class="copyright pull-left">Simple Money 2016 &copy;</div>
+					</div>
+				</footer>
+			</div>
+			<!-- /#app-footer -->
+
+		</section>
+	</div>
+</main>
+<!--========== END app main -->
+
+<script>
+	function ticketForm() {
+		$('.all-tickets').css("display", "none");
+		$('.ticket-form').css("display", "block");
+	}
+	
+	function ticketAll() {
+		$('.all-tickets').css("display", "block");
+		$('.ticket-form').css("display", "none");
+	}
+</script>

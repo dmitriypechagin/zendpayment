@@ -1,0 +1,109 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+	$(function(){			
+		$('body').addClass('login');
+	});
+</script>
+
+<div id="login">
+	<!-- start: LOGIN -->
+	<div class="row">
+		<div class="main-login col-md-12">
+			<div class="logo text-center">
+				<a href="https://sm-payment.com/"><img src="/cp/public/assets/images/logo-big.png" alt="{{app.name}}" class="img-responsive" /></a>
+			</div>
+			<?php
+				if ( isset($_SESSION['zh_fg_step']) AND $_SESSION['zh_fg_step'] == 4 )
+				{
+			?>
+			<p class="text-center">Пароль успешно изменен!</p>
+			<?php
+				}
+				elseif ( isset($_SESSION['zh_fg_step']) AND $_SESSION['zh_fg_step'] == 3 )
+				{
+			?>
+			<p class="text-center text-dark text-bold text-extra-large margin-top-15">Восстановление пароля шаг 3</p>
+			<p class="text-center margin-top-15">Введите новый пароль</p>
+			<div class="box-login">
+				<form id="zh_form" class="form-login" action="" method="POST">
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_password) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_password; ?></span>
+						<?php
+							}
+						?>
+						<input id="sign-up-name" name="password" type="password" class="form-control" placeholder="Пароль" data-toggle="tooltip" data-placement="top" title="Используется при входе в систему">
+					</div>
+					<div class="form-group">
+						<input id="sign-up-name" name="repeatPassword" type="password" class="form-control" placeholder="Подтверждение пароля">
+					</div>
+					<input id="zh_button" type="button" class="btn btn-red btn-block" value="Продолжить">
+				</form>
+			</div>
+			<?php
+				}
+				elseif ( isset($_SESSION['zh_fg_step']) AND $_SESSION['zh_fg_step'] == 2 )
+				{
+			?>
+			<p class="text-center text-dark text-bold text-extra-large margin-top-15">Восстановление пароля шаг 2</p>
+			<p class="text-center margin-top-15">Вам выслан 8 значный код, введите его в форму ниже что бы продолжить восстановление пароля</p>
+			<div class="box-login">
+				<form id="zh_form" class="form-login" action="" method="POST">
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_code) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_code; ?></span>
+						<?php
+							}
+						?>
+						<input name="fg_code" value="" type="text" class="form-control" placeholder="Код подтверждения">
+					</div>
+					<input id="zh_button" type="button" class="btn btn-red btn-block" value="Продолжить">
+				</form>
+			</div>
+			<?php
+				}
+				else
+				{
+			?>
+			<p class="text-center text-dark text-bold text-extra-large margin-top-15">Восстановление пароля</p>
+			<div class="box-login">
+				<form id="zh_form" class="form-login" action="" method="POST">
+					<div class="form-group">
+						<?php
+							if ( isset($this->err_id) ) {
+						?>
+						<span class="help-block"><?php echo $this->err_id; ?></span>
+						<?php
+							}
+						?>
+						<input name="id" value="" type="text" class="form-control" placeholder="ID">
+					</div>
+					<input id="zh_button" type="button" class="btn btn-red btn-block" value="Шаг 2">
+				</form>
+			</div>
+			<?php
+				}
+			?>
+			<div class="new-account text-center">
+				<a href="/cp"> Авторизация </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="zh_keypad" style="border: 1px solid #cecece;display:none;position: absolute;background:white;box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);color: black;width: 182px;padding:10px;border-radius:3px;"></div>
+
+<script>
+
+document.getElementById("zh_button").onclick = function() {
+	document.getElementById("zh_form").submit();
+}
+
+</script>
+
+
+<?= $this->message() ?>

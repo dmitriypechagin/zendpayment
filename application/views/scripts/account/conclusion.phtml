@@ -1,0 +1,114 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->translate("withdrawal")?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<fieldset>
+										<legend>
+											<?= $this->translate("Requests for withdrawal") ?>
+										</legend>
+										<table cellpadding="0" cellspacing="0" border="0" class="goodtable">
+<tr>
+  <th><?= $this->orderLink( array( 'title'=>'ID', 'filed'=>'transaction_id')) ?></th>
+  <th><?= $this->orderLink( array( 'title'=>'date', 'filed'=>'date')) ?></th>
+  <th></th>
+  <th><?= $this->orderLink( array( 'title'=>'sender', 'filed'=>'purseFrom')) ?></th>
+  <th><?= $this->orderLink( array( 'title'=>'total', 'filed'=>'amount')) ?></th>
+  <th><?= $this->Translate("note") ?></th>
+  <th></th>
+  <th></th>
+</tr>
+<?php foreach ($this->paginator as $tr) : ?>
+<?php $class=($i++ % 2) ? "row_even" : "row_odd"; ?>
+<tr class="<?= $class ?>">
+  <td><?= $tr->transaction_id ?></td>
+  <td><?= $tr->date ?></td>
+  <td><?= $tr->findParentUser()->e_mail ?></td>
+  <td><?= $tr->purseNameFrom() ?></td>
+  <td class="r"><?= $tr->getAmount() ?></td>
+  <td><?= $tr->description ?></td>
+  <td>
+    <?php if ( $this->mode && !$tr->status ) :?>
+  		<a href='<?= $this->url( array( 'act' => 'executed', 'tr' => $tr->transaction_id))?>'><img  src="<?= $this->baseUrl() ?>/css/img/icon_edit.png" alt="<?= $this->translate("to executed")?>" title="<?= $this->translate("to executed")?>"></a>
+  	<?php endif; ?>	
+  	&nbsp;
+    <?php if ( !$tr->status ) :?>
+	  	<a href='<?= $this->url( array( 'act' => 'cancel', 'tr' => $tr->transaction_id))?>'
+               onclick=' if (!confirm("Вы уверены?")) { return false; }'
+        	><img src="<?= $this->baseUrl() ?>/css/img/icon_delete.png" alt="<?= $this->translate("to cancel")?>" title="<?= $this->translate("to cancel")?>"></a>
+  	<?php endif; ?>	
+  </td>
+  <td>
+	<?= $this->translate( $tr->getStatus() ) ?>
+  </td>
+</tr>
+   <?php endforeach; ?>
+</table>
+<?php echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'pagination_control.phtml'); ?>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													Вывод
+												</legend>
+												<?php if ( !$this->mode ) :?>
+													<?= $this->iForm ?>
+												<?php endif; ?>	
+												
+												<?= $this->message() ?>
+											</fieldset>
+										</div>
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													Информация
+												</legend>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="checkbox-inline clip-check">
+																<input type="checkbox" name="newsletter">
+																<i></i> 
+																На данной странице Вы можете пополнить баланс внутренней валюты Simple Money.<br/> Для этого выберите валюту для пополнения, из доступных, заполните поля формы и нажмите на кнопку «Оплатить». 
+																<br/>
+																<br/>
+															</label>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

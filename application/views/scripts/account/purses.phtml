@@ -1,0 +1,38 @@
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Your purses") ?></h4>
+			<ul class="pull-right breadcrumb">
+				<li>
+					<a href="index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i>Home</a>
+				</li>
+				<li>
+					Tables
+				</li>
+				<li>
+					Basic
+				</li>
+			</ul>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<?= $this->partial("userBalance.phtml", array( 'balance' => $this->balance ) ) ?>  
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

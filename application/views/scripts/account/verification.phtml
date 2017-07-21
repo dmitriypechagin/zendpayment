@@ -1,0 +1,52 @@
+<header class="widget-header">
+	<h1 class="widget-title">
+		<?= $this->Translate("Transfer of means") ?>
+	</h1>
+</header>
+<hr class="widget-separator">
+
+<div class="clear"></div> 
+
+<div class="widget-body">
+<?= $this->partial("userBalance.phtml", array( 'balance' => $this->balance ) ) ?>
+
+<?= $this->fTransfer ?>
+<div class="clear"></div>
+
+<?= $this->message() ?>
+
+<?php if ( $this->Commissions ) :?>
+	<script type="text/javascript">
+		var comm=Array();
+		<?php foreach ($this->Commissions as $comm) : ?>
+			comm['<?= $comm->findParentRow('Object', 'object_from')->abbr ?>'] = <?= $comm->commission ?> ;
+		<?php endforeach; ?>
+	</script>
+<?php endif; ?>
+</div>
+
+<script>
+	$(function(){			
+		$('.simple-page-wrap').remove();
+	});
+</script>
+<script type="text/javascript">
+( function($){
+	$(document).ready(function () {
+		$('#amount,#commission').keyup( function() {
+			var val=$('#amount').val().replace(/,/,'.');
+			var comm=$('#commission').val().replace(/,/,'.');
+			$('#summa').val( val*(1-comm/100) ); 
+		});	
+
+		$('#purse').keyup( function() {
+			var val=$(this).val();
+			var abbr=val.substr(0,<?= Zend_Registry::get('purse')->abbrLength ?>);
+			$('#commission').val( comm[abbr] ? comm[abbr] : '');
+			$('#amount').keyup(); 
+		}).keyup();
+			
+		$('#purse,#amount,#commission').change( function() { $(this).keyup(); });
+	});	
+})(jQuery);
+</script>

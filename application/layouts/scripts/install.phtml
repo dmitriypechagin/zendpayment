@@ -1,0 +1,45 @@
+<?
+$this->headMeta()->appendHttpEquiv('expires','Wed, 26 Feb 1997 08:21:57 GMT')
+                           ->appendHttpEquiv('pragma', 'no-cache')
+                           ->appendHttpEquiv('Cache-Control', 'no-cache')
+                           ->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>LEPAYSYS</title>
+    <?= $this->headMeta();?>
+    <?= $this->headLink()->appendStylesheet($this->baseUrl().'/css/lp.css') ?>
+    <?= $this->headScript()->appendFile($this->baseUrl().'/js/jquery-1.5.js');  ?>
+</head>
+<body>
+<div class="body2">
+<div class="leftright"></div>
+<a href="" class="logo"><img src="<?= $this->baseUrl() ?>/css/img/lepay_logo.jpg"></a>
+<table cellpadding="0" cellspacing="0" border="0" class="alltable">
+<tr>
+	<td class="leftwing">
+		<div class="theimportantthings">
+ 	    </div>    
+	</td>
+  	<td class="rightwing">
+		<div class="topmenu">
+			<div class=lang>
+				<strong><a href='<?= $this->url( array('lang'=>'ru') ) ?>'>ru</a></strong> &nbsp; 
+				<a href="<?= $this->url( array('lang'=>'en') ) ?>">eng</a> 
+			</div>
+		</div>
+		<div class="allangoodheader"></div>
+		<div class="upperright"></div>
+		<div class="middleright">
+			<h1><?= $this->Translate("System LePaySys installation")?></h1><div class="clear"></div>
+            <?php echo $this->layout()->content; ?>
+		</div>
+		<div class="downright"></div>
+  	</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

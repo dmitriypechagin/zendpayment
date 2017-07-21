@@ -1,0 +1,282 @@
+<?
+$this->headMeta()->appendHttpEquiv('expires','Wed, 26 Feb 1997 08:21:57 GMT')
+                           ->appendHttpEquiv('pragma', 'no-cache')
+                           ->appendHttpEquiv('Cache-Control', 'no-cache')
+                           ->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
+
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Money</title>
+		<?= $this->headMeta();?>
+		<!-- start: GOOGLE FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+		<!-- end: GOOGLE FONTS -->
+		<!-- start: MAIN CSS -->
+		<link rel="stylesheet" href="/cp/public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/themify-icons/themify-icons.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/flag-icon-css/css/flag-icon.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/animate.css/animate.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/switchery/dist/switchery.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/ladda/dist/ladda-themeless.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/slick.js/slick/slick.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/slick.js/slick/slick-theme.css">
+		<!-- end: MAIN CSS -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link rel="stylesheet" href="/cp/public/bower_components/bootstrap-jasny/dist/css/jasny-bootstrap.min.css">
+		<link href="/cp/public/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
+		<link href="/cp/public/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: Packet CSS -->
+		<link rel="stylesheet" href="/cp/public/assets/css/styles.css">
+		<link rel="stylesheet" href="/cp/public/assets/css/svgworldmap.css">
+		<link rel="stylesheet" href="/cp/public/assets/css/phonecode.css">
+		<link rel="stylesheet" href="/cp/public/assets/css/plugins.css">
+		<link rel="stylesheet" href="/cp/public/assets/css/themes/lyt1-theme-1.css" id="skin_color">
+		<link rel="stylesheet" href="/cp/public/bower_components/sweetalert/dist/sweetalert.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/toastr/toastr.min.css">
+		<link rel="stylesheet" href="/cp/public/bower_components/fileupload/css/jquery.fileupload-ui.css">
+
+		<!-- end: Packet CSS -->
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="favicon.ico" />
+		<script src="/cp/public/bower_components/jquery/dist/jquery.min.js"></script>
+
+		<?php
+		if ( isset($_SESSION['Zend_Auth']) ) {
+		?>
+		<meta http-equiv="refresh" content="9000;URL=/cp/account/logout">
+		<?php
+		}
+		?>
+	</head>
+
+	<body>
+	
+		<?php 
+
+		echo $this->layout()->content; ?>
+		
+		<div class="toast-info" style="display: none;">
+			<button id="showtoast" class="btn btn-primary btn-wide" type="button">
+				Show Toast
+			</button>
+			<span id="title"></span>
+			<span id="message"></span>
+		</div>
+		
+		<!-- start: MAIN JAVASCRIPTS -->
+		<script src="/cp/public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/cp/public/assets/js/jquery.svgworldmap-2.1.src.js"></script>
+		<script src="/cp/public/bower_components/zh_keypad/zh_keypad.js"></script>
+		<script src="/cp/public/bower_components/components-modernizr/modernizr.js"></script>
+		<script src="/cp/public/bower_components/js-cookie/src/js.cookie.js"></script>
+		<script src="/cp/public/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+		<script src="/cp/public/bower_components/jquery-fullscreen/jquery.fullscreen-min.js"></script>
+		<script src="/cp/public/bower_components/switchery/dist/switchery.min.js"></script>
+		<script src="/cp/public/bower_components/jquery.knobe/dist/jquery.knob.min.js"></script>
+		<script src="/cp/public/bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+		<script src="/cp/public/bower_components/slick.js/slick/slick.min.js"></script>
+		<script src="/cp/public/bower_components/jquery-numerator/jquery-numerator.js"></script>
+		<script src="/cp/public/bower_components/ladda/dist/spin.min.js"></script>
+		<script src="/cp/public/bower_components/ladda/dist/ladda.min.js"></script>
+		<script src="/cp/public/bower_components/ladda/dist/ladda.jquery.min.js"></script>
+		<!-- end: MAIN JAVASCRIPTS -->
+		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="/cp/public/bower_components/bootstrap-jasny/dist/js/jasny-bootstrap.min.js"></script>
+		<script src="/cp/public/bower_components/jquery.maskedinput/dist/jquery.maskedinput.min.js"></script>
+		<script src="/cp/public/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+		<script src="/cp/public/bower_components/autosize/dist/autosize.min.js"></script>
+		<script src="/cp/public/bower_components/select2/dist/js/select2.min.js"></script>
+		<script src="/cp/public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+		<script src="/cp/public/bower_components/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+		<!-- The basic File Upload plugin -->
+		<!-- The template to display files available for upload -->
+		<script id="template-upload" type="text/x-tmpl">
+			{% for (var i=0, file; file=o.files[i]; i++) { %}
+			<tr class="template-upload fade">
+			<td>
+			<span class="preview"></span>
+			</td>
+			<td>
+			<p class="name" style="margin: 0;">{%=file.name%}</p>
+			{% if (file.error) { %}
+			<div><span class="label label-danger">Error</span> {%=file.error%}</div>
+			{% } %}
+			</td>
+			<td>
+			<p class="size" style="margin: 0;">{%=o.formatFileSize(file.size)%}</p>
+			</td>
+			</tr>
+			{% } %}
+		</script>
+		<!-- The template to display files available for download -->
+		<script id="template-download" type="text/x-tmpl">
+			{% for (var i=0, file; file=o.files[i]; i++) { %}
+			<tr class="template-download fade">
+			<td>
+			<span class="preview">
+			{% if (file.thumbnailUrl) { %}
+			<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+			{% } %}
+			</span>
+			</td>
+			<td>
+			<p class="name">
+			{% if (file.url) { %}
+			<a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+			{% } else { %}
+			<span>{%=file.name%}</span>
+			{% } %}
+			</p>
+			{% if (file.error) { %}
+			<div><span class="label label-danger">Error</span> {%=file.error%}</div>
+			{% } %}
+			</td>
+			<td>
+			<span class="size">{%=o.formatFileSize(file.size)%}</span>
+			</td>
+			<td>
+			{% if (file.deleteUrl) { %}
+			<button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+			<i class="glyphicon glyphicon-trash"></i>
+			<span>Delete</span>
+			</button>
+			<input type="checkbox" name="delete" value="1" class="toggle">
+			{% } else { %}
+			<button class="btn btn-warning cancel">
+			<i class="glyphicon glyphicon-ban-circle"></i>
+			<span>Cancel</span>
+			</button>
+			{% } %}
+			</td>
+			</tr>
+			{% } %}
+		</script>
+		<script src="/cp/public/bower_components/fileupload/js/vendor/jquery.ui.widget.js"></script>
+		<!-- The Templates plugin is included to render the upload/download listings -->
+		<script src="/cp/public/bower_components/blueimp-tmpl/js/tmpl.min.js"></script>
+		<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+		<script src="/cp/public/bower_components/blueimp-load-image/js/load-image.all.min.js"></script>
+		<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+		<script src="/cp/public/bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"></script>
+		<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.iframe-transport.js"></script>
+		<!-- The basic File Upload plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload.js"></script>
+		<!-- The File Upload processing plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload-process.js"></script>
+		<!-- The File Upload image preview & resize plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload-image.js"></script>
+		<!-- The File Upload audio preview plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload-audio.js"></script>
+		<!-- The File Upload video preview plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload-video.js"></script>
+		<!-- The File Upload validation plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload-validate.js"></script>
+		<!-- The File Upload user interface plugin -->
+		<script src="/cp/public/bower_components/fileupload/js/jquery.fileupload-ui.js"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: Packet JAVASCRIPTS -->
+		<script src="/cp/public/assets/js/letter-icons.js"></script>
+		<script src="/cp/public/assets/js/main.js"></script>
+		<script src="/cp/public/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="/cp/public/bower_components/toastr/toastr.min.js"></script>
+		<script src="/cp/public/assets/js/ui-notifications.js"></script>
+		<script src="/cp/public/assets/js/form-multiple-upload.js"></script>
+		<script src="/cp/public/assets/js/selectFx/classie.js"></script>
+		<script src="/cp/public/assets/js/selectFx/selectFx.js"></script>
+		<script src="/cp/public/assets/js/form-elements.js"></script>
+		<script src="/cp/public/assets/js/counties.js"></script>
+		<script src="/cp/public/assets/js/phonecode.js"></script>
+		
+		<!-- end: Packet JAVASCRIPTS -->
+		<!-- start: JavaScript Event Handlers for this page -->
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				MultipleUpload.init();
+				UINotifications.init();
+			});
+		</script>
+		
+		<script>
+			$(function () {                                      // Когда страница загрузится
+				$('.profile-link').each(function () {             // получаем все нужные нам ссылки
+				var location = window.location.href; // получаем адрес страницы
+				var link1 = 'https://sm-payment.com/cp/account';                // получаем адрес ссылки
+				var link2 = 'https://sm-payment.com/cp/account/';                // получаем адрес ссылки
+				var link3 = 'http://sm-payment.com/cp/account'; 
+				var link4 = 'http://sm-payment.com/cp/account/'; 
+				if(location == link1 || location == link3) {               // при совпадении адреса ссылки и адреса окна
+					$(this).addClass('current');  //добавляем класс
+				}
+				else if(location == link2 || location == link4) {               // при совпадении адреса ссылки и адреса окна
+					$(this).addClass('current');  //добавляем класс
+				}
+				});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function() {
+				var firstnameValid, lastnameValid, middlenameValid, docnumValid, docwhoValid, cityValid;
+				var error;
+				
+				$('#firstname').change(function() {
+					var infoFirstname = $('#infoFirstname');
+					var ele = $('#firstname');
+					
+					if(ele.val() != '') {
+						var pattern = /[a-zA-Zа-яА-Я-]/;
+						if(pattern.test(ele.val())) {
+							infoFirstname.removeClass('error').addClass('correct').html('');
+							ele.removeClass('wrong').addClass('normal');
+							
+							return firstnameValid = 1;
+						}
+						else {
+							error = true;
+							infoFirstname.removeClass('correct').addClass('error').html('Введите корректное имя');
+							ele.removeClass('normal').addClass('wrong');
+							
+							return firstnameValid = 0;
+						}
+					}
+					else {
+						error = true;
+						infoFirstname.removeClass('correct').addClass('error').html('Поле Имя не может быть пустым');
+						ele.removeClass('normal').addClass('wrong');
+						
+						return firstnameValid = 0;
+					}
+				});
+				
+			});
+		</script>
+		
+		<script>
+			//function to initiate jquery.maskedinput
+			var maskInputHandler = function() {
+				$.mask.definitions['~'] = '[+-]';
+				$('.input-mask-date').mask('99/99/9999');
+				$('.input-mask-phone').mask('(999) 999-9999');
+				$('.input-mask-eyescript').mask('~9.99 ~9.99 999');
+				$(".input-mask-product").mask("a*-999-a999", {
+					placeholder: " ",
+					completed: function() {
+						alert("You typed the following: " + this.val());
+					}
+				});
+			};
+		</script>
+		<!-- end: JavaScript Event Handlers for this page -->
+		
+	</body>
+</html>
+

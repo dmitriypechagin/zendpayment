@@ -1,0 +1,90 @@
+<?php
+	$tTransaction = new Transaction(); 
+	$tObject = new Object(); 
+?>
+
+<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Creation (issue) and removal of means in system") ?></h4>
+			<ul class="pull-right breadcrumb">
+				<li>
+					<a href="index.html"><i class="fa fa-home margin-right-5 text-large text-dark"></i>Home</a>
+				</li>
+				<li>
+					Tables
+				</li>
+				<li>
+					Basic
+				</li>
+			</ul>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<h5 class="over-title margin-bottom-15"><?= $this->Translate("Operations with means") ?></h5>
+									
+									<form enctype="application/x-www-form-urlencoded" method="post" action="">
+										<table class="table table-hover">
+											<tr>
+												<tr>
+													<td id="oper-label">
+														<label for="oper" class="optional"><?= $this->Translate("operation") ?></label>
+													</td>
+													<td>
+														<?= $this->Translate($tTransaction->issueOperation[$this->values['oper']]) ?>
+													</td>
+												</tr>
+												<tr>
+													<td id="purse-label">
+														<label for="purse" class="optional"><?= $this->Translate("purse") ?></label>
+													</td>
+													<td>
+														<?= $tObject->find($this->values['purse'])->current()->abbr ?>
+													</td>
+												</tr>
+												<tr>
+													<td id="amount-label">
+														<label for="amount" class="required"><?= $this->Translate("amount") ?></label>
+													</td>
+													<td>
+														<?= $this->values['amount']?>
+													</td>
+												</tr>
+												<tr>
+													<td id="note-label">
+														<label for="note" class="optional"><?= $this->Translate("note") ?></label>
+													</td>
+													<td>
+														<?= $this->values['note']?>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<input type="submit" name="Change" id="Change" value="<?= $this->Translate("change") ?>" class="submit">
+													</td>
+													<td>
+														<input type="submit" name="Confirm" id="Confirm" value="<?= $this->Translate("Save") ?>" class="submit">
+													</td>
+												</tr>
+											</tr>
+										</table>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

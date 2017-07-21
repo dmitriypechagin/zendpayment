@@ -1,0 +1,223 @@
+<div id="app">
+	<!-- sidebar -->
+	<div class="sidebar app-aside" id="sidebar">
+		<div class="sidebar-container perfect-scrollbar">
+			<div>
+				<!-- start: SEARCH FORM -->
+				<div class="search-form hidden-md hidden-lg">
+					<a class="s-open" href="#"> <i class="ti-search"></i> </a>
+					<form class="navbar-form" role="search">
+						<a class="s-remove" href="#" target=".navbar-form"> <i class="ti-close"></i> </a>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<button class="btn search-button" type="submit">
+								<i class="ti-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<!-- end: SEARCH FORM -->
+				<!-- start: USER OPTIONS -->
+				<div class="nav-user-wrapper">
+					<div class="media">
+						<div class="media-body">
+							<span class="media-heading text-white"> ID: <?=$_SESSION['zh_user_id']; ?> </span>
+							<div class="text-small text-white-transparent">
+								<?php 
+									if ( $this->account_type == 0 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Standart</span>';
+									}
+									else if ( $this->account_type == 1 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Premium</span>';
+									}
+									else if ( $this->account_type == 2 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Business</span>';
+									}
+									else if ( $this->account_type == 3 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">VIP</span>';
+									}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: USER OPTIONS -->
+				<nav>
+					<!-- start: MAIN NAVIGATION MENU -->
+					<div class="navbar-title">
+						<span>Главное меню</span>
+					</div>
+					<ul class="main-navigation-menu">
+						<li>
+							<a href="/cp/account" class="profile-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="item-inner">
+										<span class="title"> Профиль </span>
+									</div>
+								</div> 
+							</a>
+						</li>
+						<?php echo $this->navigation()->menu()->setPartial("topMenu.phtml")->renderPartial(); ?>
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- / sidebar -->
+	<div class="app-content">
+		<!-- start: TOP NAVBAR -->
+		<header class="navbar navbar-default navbar-static-top">
+			<!-- start: NAVBAR HEADER -->
+			<div class="navbar-header">
+				<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/cp/account"> <img src="/cp/public/assets/images/logo.png" alt="Packet"/> </a>
+				<a class="navbar-brand navbar-brand-collapsed" href="/cp/account"> <img src="/cp/public/assets/images/logo-collapsed.png" alt="" /> </a>
+
+				<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+					<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i><small><i class="fa fa-caret-down margin-left-5"></i></small>
+				</button>
+			</div>
+			<!-- end: NAVBAR HEADER -->
+			<!-- start: NAVBAR COLLAPSE -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-left hidden-sm hidden-xs">
+					<li class="sidebar-toggler-wrapper">
+						<div>
+							<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
+					</li>		
+				</ul>
+				<ul class="nav navbar-right">
+					<!-- start: LANGUAGE SWITCHER -->
+					<li class="dropdown">
+						<a href class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-flag-o" style="vertical-align: middle; padding: 0px 5px;" aria-hidden="true"></i> </a>
+						<ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+							<li>
+								<a href="<?= $this->url( array('lang'=>'en') ) ?>" class="menu-toggler"> English </a>
+							</li>
+							<li>
+								<a href="<?= $this->url( array('lang'=>'ru') ) ?>" class="menu-toggler"> Русский </a>
+							</li>
+						</ul>
+					</li>
+					<!-- end: LANGUAGE SWITCHER -->
+							
+					<li><a href="/cp/account/logout"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;</a></li>
+							
+				</ul>
+				<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+				<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+			</div>
+					
+			<!-- end: NAVBAR COLLAPSE -->
+		</header>
+		<!-- end: TOP NAVBAR -->
+		
+		<div class="main-content" >
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("History of transactions") ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<div class="panel panel-white">
+								<div class="panel-heading border-light">
+									<h5 class="over-title margin-bottom-15">Поиск транзакций</h5>
+								</div>
+								<div class="panel-body">
+									<?= $this->rForm ?>
+									
+									<div class="margin-top-30">
+										<a href='<?= $this->url(array('download' => 'true')) ?>'>Скачать историю транзакций</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="panel panel-white">
+								<div class="panel-body">
+									<fieldset>
+										<legend>
+											Информация
+										</legend>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-white">
+								<div class="panel-heading border-light">
+									<h5 class="over-title margin-bottom-15"><?= $this->Translate("Transactions") ?></h5>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th><?= $this->orderLink( array( 'title'=>'date', 'filed'=>'date')) ?></th>
+												<th><?= $this->orderLink( array( 'title'=>'sender', 'filed'=>'purseFrom')) ?></th>
+												<th><?= $this->orderLink( array( 'title'=>'receiver', 'filed'=>'purseTo')) ?></th>
+												<th><?= $this->orderLink( array( 'title'=>'total', 'filed'=>'amount')) ?></th>
+												<th><?= $this->orderLink( array( 'title'=>'type', 'filed'=>'type')) ?></th>  
+												<th><?= $this->Translate("note") ?></th>
+											</tr>
+										</thead>
+										<?php foreach ($this->paginator as $tr) : ?>
+											<?php $class=($i++ % 2) ? "row_even" : "row_odd"; ?>
+											<tbody>
+												<tr class="<?= $class ?>">
+													<th><?= $tr->date ?></th>
+													<td><?= $tr->purseNameFrom() ?></td>
+													<td><?= $tr->purseNameTo() ?></td>
+													<td class="r"><?= $tr->getAmount() ?></td>
+													<td><?= $this->Translate( $tr->getTable()->typeById($tr->type) ) ?></td>  
+													<td><?= $tr->description ?></td>
+												</tr>
+											</tbody>
+										<?php endforeach; ?>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	
+<!-- start: FOOTER -->
+	<footer>
+		<div class="footer-inner">
+			<div class="pull-left">
+				&copy; 2015-<span class="current-year"></span><span class="text-bold text-uppercase"> Simple Money</span>. <span>All rights reserved</span>
+			</div>
+			<div class="pull-right">
+				<span class="go-top"><i class="ti-angle-up"></i></span>
+			</div>
+		</div>
+	</footer>
+	<!-- end: FOOTER -->
+</div>

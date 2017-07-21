@@ -1,0 +1,241 @@
+<div id="app">
+	<!-- sidebar -->
+	<div class="sidebar app-aside" id="sidebar">
+		<div class="sidebar-container perfect-scrollbar">
+			<div>
+				<!-- start: SEARCH FORM -->
+				<div class="search-form hidden-md hidden-lg">
+					<a class="s-open" href="#"> <i class="ti-search"></i> </a>
+					<form class="navbar-form" role="search">
+						<a class="s-remove" href="#" target=".navbar-form"> <i class="ti-close"></i> </a>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<button class="btn search-button" type="submit">
+								<i class="ti-search"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<!-- end: SEARCH FORM -->
+				<!-- start: USER OPTIONS -->
+				<div class="nav-user-wrapper">
+					<div class="media">
+						<div class="media-body">
+							<span class="media-heading text-white"> ID: <?=$_SESSION['zh_user_id']; ?> </span>
+							<div class="text-small text-white-transparent">
+								<?php 
+									if ( $this->account_type == 0 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Standart</span>';
+									}
+									else if ( $this->account_type == 1 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Premium</span>';
+									}
+									else if ( $this->account_type == 2 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">Business</span>';
+									}
+									else if ( $this->account_type == 3 ) {
+										echo '<span style="font-size: 16px; font-weight: bold; color: #00BDF2;">VIP</span>';
+									}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: USER OPTIONS -->
+				<nav>
+					<!-- start: MAIN NAVIGATION MENU -->
+					<div class="navbar-title">
+						<span>Главное меню</span>
+					</div>
+					<ul class="main-navigation-menu">
+						<li>
+							<a href="/cp/account" class="profile-link">
+								<div class="item-content">
+									<div class="item-media">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="item-inner">
+										<span class="title"> Профиль </span>
+									</div>
+								</div> 
+							</a>
+						</li>
+						<?php echo $this->navigation()->menu()->setPartial("topMenu.phtml")->renderPartial(); ?>
+					</ul>
+					<!-- end: MAIN NAVIGATION MENU -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- / sidebar -->
+	<div class="app-content">
+		<!-- start: TOP NAVBAR -->
+		<header class="navbar navbar-default navbar-static-top">
+			<!-- start: NAVBAR HEADER -->
+			<div class="navbar-header">
+				<button href="#" class="sidebar-mobile-toggler pull-left btn no-radius hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/cp/account"> <img src="/cp/public/assets/images/logo.png" alt="Packet"/> </a>
+				<a class="navbar-brand navbar-brand-collapsed" href="/cp/account"> <img src="/cp/public/assets/images/logo-collapsed.png" alt="" /> </a>
+
+				<button class="btn pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse" data-toggle-class="menu-open">
+					<i class="fa fa-folder closed-icon"></i><i class="fa fa-folder-open open-icon"></i><small><i class="fa fa-caret-down margin-left-5"></i></small>
+				</button>
+			</div>
+			<!-- end: NAVBAR HEADER -->
+			<!-- start: NAVBAR COLLAPSE -->
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-left hidden-sm hidden-xs">
+					<li class="sidebar-toggler-wrapper">
+						<div>
+							<button href="javascript:void(0)" class="btn sidebar-toggler visible-md visible-lg">
+								<i class="fa fa-bars"></i>
+							</button>
+						</div>
+					</li>		
+				</ul>
+				<ul class="nav navbar-right">
+					<!-- start: LANGUAGE SWITCHER -->
+					<li class="dropdown">
+						<a href class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-flag-o" style="vertical-align: middle; padding: 0px 5px;" aria-hidden="true"></i> </a>
+						<ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+							<li>
+								<a href="<?= $this->url( array('lang'=>'en') ) ?>" class="menu-toggler"> English </a>
+							</li>
+							<li>
+								<a href="<?= $this->url( array('lang'=>'ru') ) ?>" class="menu-toggler"> Русский </a>
+							</li>
+						</ul>
+					</li>
+					<!-- end: LANGUAGE SWITCHER -->
+							
+					<li><a href="/cp/account/logout"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;</a></li>
+							
+				</ul>
+				<!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+				<div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+					<div class="arrow-left"></div>
+					<div class="arrow-right"></div>
+				</div>
+				<!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+			</div>
+					
+			<!-- end: NAVBAR COLLAPSE -->
+		</header>
+		<!-- end: TOP NAVBAR -->
+		
+		<div class="main-content">
+	<div class="wrap-content container" id="container">
+		<!-- start: BREADCRUMB -->
+		<div class="breadcrumb-wrapper">
+			<h4 class="mainTitle no-margin"><?= $this->Translate("Converting of currencies") ?></h4>
+		</div>
+		<!-- end: BREADCRUMB -->
+		
+		<!-- start: CONTEXTUAL CLASSES -->
+		<div class="container-fluid container-fullw">
+			<div class="row">
+				<!-- start: ICONS AND HELPERS -->
+				<div class="container-fluid container-fullw">
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
+							<div class="panel panel-white">
+								<div class="panel-heading border-light">
+									<h4 class="panel-title text-primary">Обмен</h4>
+								</div>
+								<div class="panel-body">
+									<?php if ( count($this->Objects)>0 ) : ?>
+										<script type="text/javascript">
+											var comm=Array();
+											var cours=Array();
+											<?php if ( $this->Commissions ) :?>
+												var comm=<?php echo $this->Commissions; ?>;
+											<?php endif; ?>
+											<?php if ( $this->Objects ) :?>
+												<?php foreach ($this->Objects as $object) : ?>
+													cours['<?= $object->object_id ?>'] = parseFloat('<?= $object->course ?>') ;
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</script>
+									<?php endif; ?>   
+									
+									<?= $this->convForm ?>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="panel panel-white">
+								<div class="panel-heading border-light">
+									<h4 class="panel-title text-primary">Курсы обмена</h4>
+								</div>
+								<div class="panel-body">
+									<table class="table table-condensed table-hover">
+										<thead>
+											<tr>
+												<th class="hidden-xs">Отдаете</th>
+												<th class="hidden-xs">Получаете</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php foreach ($this->nonBaseCur as $cur):?>
+											<tr>
+												<td>
+													1 <?= $this->baseCur->abbr?>
+													<br>
+													1 <?= $cur->abbr?>
+												</td>
+												<td>
+													<?= $cur->course ?> <?= $cur->abbr?>
+													<br>
+													<?= substr((1/$cur->course), 0, 5);?> <?= $this->baseCur->abbr?>
+												</td>
+											</tr>
+											<?php endforeach;?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<?= $this->message() ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+	
+<!-- start: FOOTER -->
+	<footer>
+		<div class="footer-inner">
+			<div class="pull-left">
+				&copy; 2015-<span class="current-year"></span><span class="text-bold text-uppercase"> Simple Money</span>. <span>All rights reserved</span>
+			</div>
+			<div class="pull-right">
+				<span class="go-top"><i class="ti-angle-up"></i></span>
+			</div>
+		</div>
+	</footer>
+	<!-- end: FOOTER -->
+</div>
+
+<script type="text/javascript">
+( function($){
+	$(document).ready(function () {
+		$('#objectFrom,#objectTo').change( function() {
+			var obj1=$('#objectFrom').val(); 
+			var obj2=$('#objectTo').val();
+			var commission=comm;
+			var course = cours[obj2]/cours[obj1];
+			var val=$('#amount').val().replace(/,/,'.');
+			$('#summa').val( val*course*(1-commission/100) ); 
+		}).change();	
+
+		$('#amount').keyup( function() {
+			$('#objectFrom').change();
+		});
+			
+	});	
+})(jQuery);
+</script>

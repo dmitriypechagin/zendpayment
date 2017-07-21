@@ -1,0 +1,164 @@
+?# Русский
+step1;Подключение к базе данных
+dbname;Имя базы данных
+host;Имя хоста
+username;Имя пользователя
+password;Пароль
+step2;Создание таблиц
+Table_prefix;Префикс названия таблиц
+Create;Создать
+No more than three alphabetic Latin characters;Не более трех буквенных латинских символов
+Tables are created;Таблицы созданы
+step3;Создание учетной записи администратора
+The login account of the manager is created;Учетная запись администратора создана
+step4;Установки системы
+Installation is completed;Инсталляция завершена
+To enter into system;Войти в систему
+Menu;Меню
+Head Page;Главная
+Registration, fa-user-plus;Регистрация, fa-user-plus
+Login;Авторизация
+Submit;Отправить
+System Settings, fa-cogs;Настройки системы, fa-cogs
+Currencies, fa-usd;Валюты, fa-usd
+Exchange rate and commission, fa-percent;Курсы обмена и комиссии, fa-percent
+Issue and repayment, fa-reply;Эмиссия и удаление, fa-reply
+Reports;Отчеты
+Viewing of purses, fa-eye;Просмотр кошельков, fa-eye
+Estimation of means, fa-university;Оценка средств, fa-university
+Blocking of purses, fa-ban;Блокировка кошельков, fa-ban
+Conversion, fa-exchange;Обмен валют, fa-exchange
+conversion;конвертация
+add the user;добавить пользователя
+Transfer, fa-check;Перевод, fa-check
+History, fa-history;История, fa-history
+Fill up a purse, fa-plus;Пополение, fa-plus
+Conclusion of means, fa-credit-card;Вывод, fa-credit-card
+Logout, fa-sign-out;Выход, fa-sign-out
+Abbreviation;код
+no currencies;В системе нет валют
+Add currency;Создание новой валюты
+Full name;полное наименование
+Base;основная
+Make base;сделать основной
+Edit;редактировать
+Edit currency;Редактирование валюты
+Delete;удалить
+Save;сохранить
+Number of signs after a comma;число знаков после запятой
+Description;описание
+Comment;Комментарий
+Factor;коэффициент
+Course concerning base currency;курс относительно базовой валюты
+Further;Далее
+purseLength;Количество символов в названии кошелька
+abbrLength;Количество символов сокращенного названия валюты
+Set;Установить
+Set status;установить статус
+purse;Кошелек
+Search;найти
+Status;Статус
+Enabled;активен
+Blocked;заблокирован
+balace;Баланс
+System currencies;Валюты системы
+Not well for a withdrawal;Недоступно для вывода
+It is not enough amount for a withdrawal;Этой суммы недостаточно для снятия
+available;доступно
+Such conversion is unavailable;Такая конвертация недоступна
+convert;Конвертировать
+send;Перевести
+withdrawal;вывод
+Login name;Имя пользователя
+Password;Пароль
+Rates and exchange;Курсы и обмен
+exchange rate;Курс обмена
+exchange commission;Комиссия обмена
+total;Итого
+Total;Итого получаете
+transfer commission;Комиссия перевода
+Storage;Хранение
+storage commission;Комиссия хранения
+a day;в день
+a month;в месяц
+a year;в год
+The user gives;Пользователь отдает
+receives;Получает
+Creation (issue) and removal of means in system;Создание (эмиссия) и удаление средств в системе
+creation of means;создание средств
+removal of means;удаление средств
+Purses, fa-money;Кошельки, fa-money
+Your purses;Ваши кошельки
+Purse;Кошелек
+Balance;Баланс
+Operations with means;операции со средствами
+operation;Опреация
+amount;Сумма
+note;Примечание
+user ID;ID пользователя
+currency;Валюта
+The total balance sheet of means of system;Суммарный баланс средств в системе
+Converting of currencies;Конвертация валют
+from purse;Отдаете
+to purse;Получаете
+Transfer of means;Перевод средств
+Addressee ID;Кому (ID пользователя)
+commission;Коммиссия
+History of transactions;Последние операции
+ID transaction;ID транзакции
+the period of transactions;Период транзакций
+purse of the sender;Кошелек отправителя
+purse of the receiver;Кошелек получателя
+type;Тип
+transfer;Перевод
+issue;эмиссия
+repayment;удаление
+Transactions;Транзакции
+date;Дата
+sender;Отправитель
+receiver;Получатель
+System LePaySys installation;Инсталляция системы LePaySys
+Connection with a database is installed;Соединение с базой данных установлено
+It is impossible to be connected to a database;Невозможно подключиться к базе
+It is impossible to connect the adapter;Невозможно подключить адаптер
+Operation is conducted successfully;Операция проведена успешно
+Operations with the blocked purse are inaccessible;Операции с заблокированным кошельком недоступны
+There are no means;Недостаточно средств
+You indicated your purse as a destination;Вы указали свой кошелек в качестве адресата
+Availability of a withdrawal;вывод возможен
+Minimum amount for a conclusion ( 0 - without restrictions );минимальная сумма для вывода ( 0 - без ограничений )
+Requests for withdrawal;заявки на вывод
+executed;выполнена
+cancel;отмененa
+to executed;выполнить
+to cancel;отменить
+There is no access to operation;нет доступа к операции
+in handling;в обработке
+Сhange password, fa-unlock;Сменить пароль, fa-unlock
+Old password;Старый пароль
+New password;Новый пароль
+Confirm new password;Подтверждение нового пароля
+The old password is incorrectly;Старый пароль неверен
+Change;Сменить
+storage;храниение
+change;Изменить
+History of operations;История операций
+To perform still operation;Сделать еще операцию
+You are sure?;Вы уверены?
+Means from accounts will be irrevocably remote;Средства со счетов будут безвозвратно удалены
+Means from accounts will be converted in basic currency;Средства со счетов будут конвертированы в базовую валюту
+Exchange rate should be more than 0;Курса обмена должен быть больше 0
+Add funds text;Переведите средства на банковский счет системы и на Ваш счет будет зачислена соовествующая сумма
+adapter;Адаптер
+Invalid user name or the password;Неправильное имя пользователя или пароль
+User profile; Профиль пользователя
+Support, fa-question; Поддержка, fa-question
+Support; Поддержка
+Subject; Тема
+Message; Текст обращения
+Invoices, fa-list-alt; Счета, fa-list-alt
+Invoices; Счета
+Password recovery; Восстановления пароля
+Verification requests, fa-check; Заявки на верификацию, fa-check
+Select purse; Выберите валюту
+From purse; С кошелька

@@ -1,0 +1,70 @@
+
+BODY { padding: 0 0 0 0; margin: 0 0 0 0; background: #e6e6e6 url(img/back.jpg); color: #000; font-family: Arial, Helvetica, sans-serif; font-size: 80%;}
+P, H1, H2, H3 {padding: 0 0 0 0; margin: 0 0 1em 0;}
+TD {vertical-align: top;}
+A {color: #000; text-decoration: underline;}
+A:hover {color: #035eb2;}
+A IMG {border: none;}
+H1 { color: #fff; font-weight: normal; font-size: 1.35em; background:  #87c7f0 url(img/h1_back.png) repeat-y ; padding: 6px 12px 6px 12px; margin: -17px 0 30px -12px; float: left;}
+H2 {font-weight: bold; font-size: 1.2em; margin: 0 0 15px 0;}
+.clear {clear: both; height: 0; line-height: 0;}
+.h30 {height: 30px;}
+
+.body2 {min-height: 677px; background:  url(img/back_top.jpg) repeat-x;}
+.alltable {width: 100%;}
+.leftwing {width: 220px; padding: 113px 0 0 0;}
+.rightwing {}
+.upperright {background:  url(img/upperright.png) repeat-x; height: 17px;}
+.downright {background:  url(img/downright.png) repeat-x; height: 17px;}
+.middleright {background: #fff; padding: 20px 50px 50px 35px; min-height: 400px;}
+.leftright {position: absolute; width: 9px; height: 425px; background:  url(img/leftright.png) no-repeat; z-index:10;  top: 95px; left: 211px;}
+
+.allangoodheader {height: 66px;}
+.logo {display: block; position: absolute; top:28px; left: 20px;}
+.topmenu {height: 28px; line-height: 28px; background: #000 url(img/topmenu_back.jpg) no-repeat left bottom; color: #fff; font-size: .85em; padding: 0 50px 0 35px;}
+.topmenu A {color: #d5d5d5; padding-right: 20px;}
+.topmenu A:hover {color: #d5d5d5; text-decoration: none;}
+.lang {float: right; font-size: 1.1em; }
+.lang A {color: #fff;}
+
+.theimportantthings {float: right; border-bottom: 1px solid #fff; background: #eaeaea  url(img/tit_back.png) repeat-x;}
+.theimportantthings A {display: block; width: 154px; padding: 8px 15px 8px 15px;  background:  url(img/tit_item.png) repeat-x; border-top: 1px solid #fff; border-left: 1px solid #fff;}
+.theimportantthings A:hover {background:  url(img/tit_item_hover.png) repeat-x; }
+.theimportantthings A.current {background:  url(img/tit_item_cur.png) repeat-x bottom; z-index: 20; border-left: none; border-top: none; text-decoration: none; width: 159px; margin: 0 0 -4px -4px; position: relative; padding-bottom: 12px;}
+.theimportantthings A.current:hover {color: #000;}
+
+.goodtable {margin: 0 0 0 -12px; border-bottom: 3px solid #f0f0f0;}
+.goodtable TH {font-weight: bold; font-size: .85em; text-align: left; padding: 0 12px 3px 12px; border-bottom: 1px solid #e0e0e0; }
+.goodtable TD {padding: 6px 12px 6px 12px; text-align: left; border-right: 1px solid  #e0e0e0; vertical-align: middle;}
+.row_add {}
+.row_even{ background: #f0f0f0;} 
+.goodtable .r { border-right: none; text-align: right; }
+.s {font-size: .85em;}
+.icon {vertical-align: middle; margin-left: 15px;}
+.goodtable .double TD {padding-bottom: 3px; }
+.goodtable .double2 TD {padding-top: 3px; border-top: 1px dotted #d6d6d6;}
+
+.formwrapper { border: 1px solid #e0e0e0; padding: 20px 70px 20px 70px; margin: 0 0 0 -12px; float: left;}
+.form_table TD {padding: 4px 15px 4px 0; vertical-align: middle;}
+TEXTAREA { width: 300px; height: 70px; }
+.submit {font-family: Arial, Helvetica, sans-serif; font-size: 1.2em; padding: 5px 10px 5px 10px; cursor: pointer; margin: 20px 0 0 0;}
+.radio {vertical-align: middle;}
+
+.formwrapper_small { border: 1px solid #e0e0e0; padding: 5px 15px 5px 12px; margin: 0 0 0 -12px; float: left;}
+.submit_small {font-family: Arial, Helvetica, sans-serif; font-size: 1em; padding: 2px 10px 2px 10px; cursor: pointer; }
+.si {width: 2.5em; text-align: center;}
+
+.tosort {display: block; float: left;}
+.sorting {display: block; float: left; padding-left: 5px;}
+.sorting IMG {width: 7px; height: 5px;}
+.sort_asc { width: 7px; height: 5px; display: block;background: url(img/sort_asc.png) no-repeat; margin-bottom: 3px; }
+.sort_desc { width: 7px; height: 5px; display: block; background: url(img/sort_desc.png) no-repeat; }
+.sort_asc:hover {background: url(img/sort_asc_on.png) no-repeat;}
+.sort_desc:hover {background: url(img/sort_desc_on.png) no-repeat;}
+.sort_asc_on { width: 7px; height: 5px; display: block;background: url(img/sort_asc_on.png) no-repeat; margin-bottom: 3px; }
+.sort_desc_on { width: 7px; height: 5px; display: block; background: url(img/sort_desc_on.png) no-repeat; }
+
+.pages01 {height: 30px; background: #e5e5e5 url(img/pages_left.png) no-repeat left;}
+.pages02 {height: 30px; background:  url(img/pages_right.png) no-repeat right; padding: 0 5px 0 15px; line-height: 30px; font-size: 1.2em;}
+.pages02 A, .pages02 STRONG {padding-right: 10px;}
+.pages02 .left, .pages02 .right {color: #7ba0da; text-decoration: none; font-size: 1.2em;}

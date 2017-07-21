@@ -1,0 +1,7 @@
+<?
+foreach ($this->container as $page) {
+	if ($this->navigation()->menu()->accept($page)) {
+	    if ( $page->isActive() ) $page->setClass( "current" ); 
+		echo $this->navigation()->menu()->htmlify($page), PHP_EOL;
+	}
+}

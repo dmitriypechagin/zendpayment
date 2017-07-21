@@ -1,0 +1,13 @@
+<?
+$response = Zend_Controller_Front::getInstance()->getResponse();
+
+$response->clearHeaders()
+         ->setHeader('Content-Description','File Transfer')
+		 ->setHeader('Pragma', 'public')
+		 ->setHeader('Expires', '0')
+		 ->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+		 ->setHeader('Cache-Control', 'public')
+		 ->setHeader('Content-Type', "text/plain; $this->charset ")
+		 ->setHeader('Content-Disposition','attachment; filename="history.csv"');
+
+echo $this->csv;

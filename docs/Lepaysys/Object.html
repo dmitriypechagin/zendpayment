@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Object</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Object</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Model Object</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Lepaysys</li>
+				<li><span class="field">version:</span> 1.0</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Object.php.html">/Object.php</a> (line <span class="field"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a11">11</a></span>)
+		</p>
+		
+				
+		<pre>Zend_Db_Table_Abstract
+   |
+   --Object</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$_dependentTables" title="details" class="var-name">$_dependentTables</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_rowClass" title="details" class="var-name">$_rowClass</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addObject" title="details" class="method-name">addObject</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#existsByAbbr" title="details" class="method-name">existsByAbbr</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$abbr</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">ObjectRowset</span>
+										<a href="#fetchAllLive" title="details" class="method-name">fetchAllLive</a>
+											([<span class="var-type">Zend_Db_Table_Select</span>&nbsp;<span class="var-name">$select</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Lepaysys/ObjectRow.html">ObjectRow</a></span>
+										<a href="#findByAbbr" title="details" class="method-name">findByAbbr</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$abbr</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$onlyLive</span> = <span class="var-default">TRUE</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Lepaysys/ObjectRow.html">ObjectRow</a></span>
+										<a href="#findByPurse" title="details" class="method-name">findByPurse</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$purse</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$onlyLive</span> = <span class="var-default">TRUE</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../Lepaysys/ObjectRow.html">ObjectRow</a></span>
+										<a href="#getBase" title="details" class="method-name">getBase</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#getConversionCourse" title="details" class="method-name">getConversionCourse</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$id1</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$id2</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">ObjectRowset</span>
+										<a href="#getCourseById" title="details" class="method-name">getCourseById</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">ObjectRowset</span>
+										<a href="#getNonBase" title="details" class="method-name">getNonBase</a>
+											([<span class="var-type">Zend_Db_Table_Select</span>&nbsp;<span class="var-name">$select</span> = <span class="var-default">NULL</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getRowsetsForCommission" title="details" class="method-name">getRowsetsForCommission</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$object_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$object_to</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$rowset1</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$rowset2</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setAvailable" title="details" class="method-name">setAvailable</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$object_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$object_to</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setBase" title="details" class="method-name">setBase</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCommission" title="details" class="method-name">setCommission</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$object_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$object_to</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_setupTableName" title="details" class="method-name">_setupTableName</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_dependentTables" id="$_dependentTables"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$_dependentTables</span>
+			 = <span class="var-default">array('Balance','Transaction','Commissions')</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a17">17</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> Zend_Db_Table_Abstract</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_rowClass" id="$_rowClass"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_rowClass</span>
+			 = <span class="var-default"> 'ObjectRow'</span>			(line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a23">23</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> Zend_Db_Table_Abstract</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodaddObject" id="addObject"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addObject</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a53">53</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creation of new object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addObject
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$data</span><span class="var-description">: string $data['abbr'] The reduced name              string $data['name'] Name object              int $data['exp'] Accuracy of representation              string $data['description'] Description object              float $data['factor'] Factor (reserve)              float $data['course'] Course basic currency              float $data['comission'] The commission on a witdarawal              float $data['storage'] The storage commission              enum('1', '2', '3') $data['storagePeriod'] The storage period: 1 - day, 2 - month, 3- year              float $data['minWithdrawal'] Minimum amount for a witdarawal              boolean $data['availabilityWithdrawal'] Availability to witdarawal              boolean $data['base'] : 1 - basic currency, 0 - non basic currency              boolean $data['deleted'] : 1 - remote currency, 0 - availability</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexistsByAbbr" id="existsByAbbr"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">existsByAbbr</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a64">64</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine whether a given reduced name object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			existsByAbbr
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$abbr</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$abbr</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfetchAllLive" id="fetchAllLive"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetchAllLive</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a75">75</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return all non deleted objects</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ObjectRowset</span>
+		<span class="method-name">
+			fetchAllLive
+		</span>
+					([<span class="var-type">Zend_Db_Table_Select</span>&nbsp;<span class="var-name">$select</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Zend_Db_Table_Select</span>
+				<span class="var-name">$select</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindByAbbr" id="findByAbbr"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findByAbbr</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a86">86</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return object row for reduced name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Lepaysys/ObjectRow.html">ObjectRow</a></span>
+		<span class="method-name">
+			findByAbbr
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$abbr</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$onlyLive</span> = <span class="var-default">TRUE</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$onlyLive</span><span class="var-description">: If TRUE review only not remote objects.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$abbr</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindByPurse" id="findByPurse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">findByPurse</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a98">98</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return object row for purse name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Lepaysys/ObjectRow.html">ObjectRow</a></span>
+		<span class="method-name">
+			findByPurse
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$purse</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$onlyLive</span> = <span class="var-default">TRUE</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$onlyLive</span><span class="var-description">: If TRUE review only not remote objects.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$purse</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetBase" id="getBase"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBase</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a107">107</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return object row basic currency</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Lepaysys/ObjectRow.html">ObjectRow</a></span>
+		<span class="method-name">
+			getBase
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetConversionCourse" id="getConversionCourse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConversionCourse</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a139">139</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns course of conversion from object $id1 in object $id2</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			getConversionCourse
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$id1</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$id2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id1</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id2</span><span class="var-description">: Identifier object</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCourseById" id="getCourseById"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCourseById</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a128">128</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return course for identifier object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ObjectRowset</span>
+		<span class="method-name">
+			getCourseById
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: Identifier object</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetNonBase" id="getNonBase"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNonBase</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a117">117</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return objects no basic currencys</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ObjectRowset</span>
+		<span class="method-name">
+			getNonBase
+		</span>
+					([<span class="var-type">Zend_Db_Table_Select</span>&nbsp;<span class="var-name">$select</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Zend_Db_Table_Select</span>
+				<span class="var-name">$select</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetRowsetsForCommission" id="getRowsetsForCommission"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRowsetsForCommission</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a203">203</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets two objects rowsets for recount commission and availability to witdarawal.</p>
+<p class="description"><p>Called from setCommission() and setAvailable()</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getRowsetsForCommission
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$object_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$object_to</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$rowset1</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$rowset2</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$object_from</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$object_to</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$value</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$rowset1</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$rowset2</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetAvailable" id="setAvailable"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setAvailable</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a178">178</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set flag availability to conversion from object $object_from in object $object_to</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setAvailable
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$object_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$object_to</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$object_from</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$object_to</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetBase" id="setBase"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setBase</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a223">223</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set new basic currency.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setBase
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: Identifier object</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetCommission" id="setCommission"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCommission</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a153">153</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set course of conversion from object $object_from in object $object_to</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCommission
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$object_from</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$object_to</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$object_from</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$object_to</span><span class="var-description">: Identifier object</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_setupTableName" id="_setupTableName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_setupTableName</span> (line <span class="line-number"><a href="../__filesource/fsource_Lepaysys__Object.php.html#a29">29</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> Zend_Db_Table_Abstract</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_setupTableName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 24 Jan 2012 22:12:01 +0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>
